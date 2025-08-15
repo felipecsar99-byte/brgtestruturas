@@ -1,12 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { Menu, X } from "lucide-react"; // Ícones para o menu (hambúrguer e fechar)
+import { Button } from "@/components/ui/button"; // Componente de botão da sua UI
 import navbarbrgt from "@/assets/navbarbrgt.png";
 
 // --- DADOS E CONFIGURAÇÕES DO COMPONENTE ---
 
-/**
- * Array de objetos que define os itens da navegação.
- * Manter os dados separados do JSX torna o componente mais limpo e fácil de manter.
- */
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/sobre", label: "Sobre nós" },
@@ -15,71 +14,81 @@ const NAV_ITEMS = [
   { to: "/contato", label: "Contato" },
 ];
 
-/**
- * Função que gera dinamicamente as classes CSS para os links de navegação.
- * Utiliza o estado `isActive` fornecido pelo NavLink para destacar o link da página atual.
- */
+// Função para estilizar os links (tanto para desktop quanto para mobile)
 const getNavItemClass = ({ isActive }: { isActive: boolean }): string =>
-  `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+  `transition-colors duration-200 ${
     isActive
-      ? "text-primary bg-primary/10" // Estilo para o link ativo (ex: cor primária com um fundo sutil)
-      : "text-foreground/70 hover:text-foreground" // Estilo para links inativos e efeito hover
+      ? "text-primary"
+      : "text-foreground/70 hover:text-foreground"
   }`;
-
 
 // --- COMPONENTE PRINCIPAL DA NAVBAR ---
 
 export default function Navbar() {
+  // Estado para controlar se o menu mobile está aberto ou fechado
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    /**
-     * `<header>` é a tag semântica correta para o cabeçalho principal do site.
-     * Classes aplicadas:
-     * - `fixed top-0 left-0 right-0`: Fixa a barra no topo da janela.
-     * - `z-50`: Garante que a navbar fique acima da maioria dos outros elementos da página.
-     * - `backdrop-blur`: Aplica um efeito de desfoque ao fundo.
-     * - `supports-[backdrop-filter]:bg-background/75`: Aplica um fundo semi-transparente apenas em navegadores que suportam o filtro de desfoque, melhorando a compatibilidade.
-     * - `border-b border-border`: Adiciona uma linha fina na parte de baixo da barra.
-     */
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      
-      {/**
-       * `<nav>` é a tag semântica para a navegação principal.
-       * Classes aplicadas:
-       * - `container`: Centraliza o conteúdo, respeitando a largura máxima definida no seu tema.
-       * - `flex items-center justify-between`: Cria um layout flexível, alinha os itens verticalmente ao centro e os distribui com espaço entre eles (logo à esquerda, links à direita).
-       * - `h-16`: Define a ALTURA da barra de navegação para 4rem (64px).
-       */}
       <nav className="container flex items-center justify-between h-20">
         
         {/* Bloco do Logotipo */}
-        <a href="/" className="flex items-center gap-3" aria-label="Página inicial da BRGT">
+        <Link to="/" className="flex items-center gap-3" aria-label="Página inicial da BRGT">
           <img
-            // Recomenda-se importar a imagem para que o Vite/bundler a otimize
             src={navbarbrgt}
             alt="BRGT Engenharia Estrutural - logotipo"
-            className="h-14 w-auto" // A altura do logo (48px)
-            loading="eager" // Carrega a imagem com prioridade, pois está no topo da página
+            className="h-14 w-auto"
+            loading="eager"
             decoding="async"
           />
-          {/* Texto para leitores de tela, melhora a acessibilidade */}
           <span className="sr-only">BRGT Engenharia</span> 
-        </a>
+        </Link>
 
-        {/* Bloco dos Links de Navegação */}
-        <div className="hidden md:flex items-center gap-1"> {/* `hidden md:flex` esconde os links em telas pequenas */}
+        {/* Links de Navegação para Desktop */}
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
           {NAV_ITEMS.map((item) => (
             <NavLink 
               key={item.to} 
               to={item.to} 
               className={getNavItemClass} 
-              end // A prop `end` garante que o link "Home" só fique ativo na página inicial exata
+              end
             >
               {item.label}
             </NavLink>
           ))}
         </div>
 
+        {/* Botão do Menu Hambúrguer para Mobile */}
+        <div className="md:hidden">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            aria-label="Abrir menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
       </nav>
+
+      {/* Painel do Menu Mobile (só aparece se isMenuOpen for true) */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-background border-t border-border">
+          <div className="container flex flex-col items-center gap-4 py-4">
+            {NAV_ITEMS.map((item) => (
+              <NavLink 
+                key={item.to} 
+                to={item.to} 
+                className={getNavItemClass} 
+                end
+                onClick={() => setIsMenuOpen(false)} // Fecha o menu ao clicar num link
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
