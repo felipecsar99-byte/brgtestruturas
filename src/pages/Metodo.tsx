@@ -1,6 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { Zap } from "lucide-react";
 
+// ✅ 1. IMPORTANDO O HOOK useParallax
+import { useParallax } from "@/hooks/use-parallax";
+
 // --- IMPORTAÇÃO DOS COMPONENTES DE UI ---
 import {
   Card,
@@ -51,6 +54,9 @@ const tecnologias = [
 // --- COMPONENTE DA PÁGINA ---
 
 export default function Metodo() {
+  // ✅ 2. INICIALIZANDO O HOOK DO PARALLAX
+  const bgRef = useParallax(0.3);
+
   const introducao = metodoSections.find(sec => sec.title === "Introdução");
   const secoesFinais = metodoSections.filter(
     (section) =>
@@ -65,25 +71,32 @@ export default function Metodo() {
         <link rel="canonical" href="https://www.seudominio.com.br/metodo" />
       </Helmet>
 
-      {/* --- Seção Hero --- */}
-      <section className="relative min-h-screen grid place-content-center text-center p-4">
-        <div className="absolute inset-0 -z-10">
+      {/* --- Seção Hero (COM PARALLAX E POSICIONAMENTO HÍBRIDO) --- */}
+      <section className="relative min-h-screen flex flex-col justify-center items-center text-center p-4 pt-32 pb-16">
+        <div
+          // ✅ 3. APLICANDO A REFERÊNCIA DO PARALLAX
+          ref={bgRef}
+          className="absolute inset-0 -z-10 overflow-hidden"
+        >
           <img
             src={heroMetodoImg}
             alt="Ilustração de processos de engenharia e automação"
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
+
         <div className="relative max-w-2xl mx-auto">
-          <div className="bg-background rounded-lg shadow-xl p-8 pt-16 text-center">
+          <div className="bg-background rounded-lg shadow-xl p-6 pt-12 md:p-8 md:pt-16 text-center">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="bg-[#f16136] rounded-md shadow-lg p-4 w-24 h-24 grid place-content-center">
-                <Zap className="w-10 h-10 text-white" />
+              <div className="bg-[#f16136] rounded-md shadow-lg p-3 w-20 h-20 md:w-24 md:h-24 grid place-content-center">
+                <Zap className="w-8 h-8 md:w-10 md-h-10 text-white" />
               </div>
             </div>
-            <h1 className="text-3xl font-semibold mb-4">{introducao?.title}</h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <h1 className="text-2xl md:text-3xl font-semibold mb-4">{introducao?.title}</h1>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               {introducao?.content}
             </p>
           </div>
@@ -92,46 +105,50 @@ export default function Metodo() {
 
       {/* --- Seção de Plugins Autônomos --- */}
       <section className="container py-16">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold mb-2">Plugins Autônomos</h2>
-          <h3 className="text-lg text-muted-foreground mb-8">Para mais informações sobre como vamos elevar a sua obra, clique nos cards.</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <a href="https://www.instagram.com/p/C4tDCrygmn1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
-              <Card className="bg-primary/5 border-primary/20 flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg text-primary">Modulação Automática de Alvenaria</CardTitle>
-                  <CardDescription className="font-medium">Agilidade e Precisão</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow"><p className="text-sm">Reduzimos a modelagem de elevações, que levaria um dia inteiro, para minutos, automatizando a criação de paredes e reforços.</p></CardContent>
-              </Card>
-            </a>
-            <a href="https://www.instagram.com/p/C5y6O8vpBPL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
-              <Card className="bg-primary/5 border-primary/20 flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg text-primary">Plugin de Inserção de Arranques</CardTitle>
-                  <CardDescription className="font-medium">Da Análise à Execução, Sem Erros</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow"><p className="text-sm">Nossa ferramenta transfere as coordenadas exatas do software de cálculo para o modelo BIM automaticamente, garantindo uma montagem rápida e segura.</p></CardContent>
-              </Card>
-            </a>
-            <a href="https://www.instagram.com/p/C4N5p15g7_Q/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
-              <Card className="bg-primary/5 border-primary/20 flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg text-primary">Integração TQS-Revit</CardTitle>
-                  <CardDescription className="font-medium">Inteligência BIM Sem Conflitos</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow"><p className="text-sm">Convertemos informações do TQS em um modelo BIM rico em dados no Revit, o que significa compatibilização total e menos retrabalhos no canteiro.</p></CardContent>
-              </Card>
-            </a>
-          </div>
-        </div>
+        <Card className="max-w-5xl mx-auto text-center p-8 shadow-xl">
+          <CardHeader>
+            <CardTitle className="text-3xl font-semibold mb-2">Plugins Autônomos</CardTitle>
+            <CardDescription className="text-lg text-muted-foreground">Para mais informações sobre como vamos elevar a sua obra, clique nos cards.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-3 gap-6 text-left mt-6">
+              <a href="https://www.instagram.com/p/C4tDCrygmn1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
+                <Card className="bg-[#ff6130]/10 border-[#ff6130]/30 flex flex-col h-full hover:bg-[#ff6130]/20">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-[#ff6130]">Modulação Automática de Alvenaria</CardTitle>
+                    <CardDescription className="font-medium text-foreground/80">Agilidade e Precisão</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow"><p className="text-sm text-foreground/70">Reduzimos a modelagem de elevações, que levaria um dia inteiro, para minutos, automatizando a criação de paredes e reforços.</p></CardContent>
+                </Card>
+              </a>
+              <a href="https://www.instagram.com/p/C5y6O8vpBPL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
+                <Card className="bg-[#ff6130]/10 border-[#ff6130]/30 flex flex-col h-full hover:bg-[#ff6130]/20">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-[#ff6130]">Plugin de Inserção de Arranques</CardTitle>
+                    <CardDescription className="font-medium text-foreground/80">Da Análise à Execução, Sem Erros</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow"><p className="text-sm text-foreground/70">Nossa ferramenta transfere as coordenadas exatas do software de cálculo para o modelo BIM automaticamente, garantindo uma montagem rápida e segura.</p></CardContent>
+                </Card>
+              </a>
+              <a href="https://www.instagram.com/p/C4N5p15g7_Q/?utm_source=ig_web_copy_link" target="_blank" rel="noopener noreferrer" className="block hover:scale-105 transition-transform duration-300">
+                <Card className="bg-[#ff6130]/10 border-[#ff6130]/30 flex flex-col h-full hover:bg-[#ff6130]/20">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-[#ff6130]">Integração TQS-Revit</CardTitle>
+                    <CardDescription className="font-medium text-foreground/80">Inteligência BIM Sem Conflitos</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow"><p className="text-sm text-foreground/70">Convertemos informações do TQS em um modelo BIM rico em dados no Revit, o que significa compatibilização total e menos retrabalhos no canteiro.</p></CardContent>
+                </Card>
+              </a>
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
       {/* --- Seção de Processo de Trabalho --- */}
       <section className="container py-16">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-8">Processo de Trabalho</h2>
-          <div className="bg-card rounded-lg border overflow-hidden">
+          <div className="bg-card rounded-lg border overflow-hidden shadow-lg">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -167,24 +184,17 @@ export default function Metodo() {
         </div>
       </section>
 
-      {/* --- Seção de Tecnologias e Ferramentas (COM LOGOS MAIORES E 3 POR VEZ) --- */}
+      {/* --- Seção de Tecnologias e Ferramentas --- */}
       <section className="container py-16">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-2 text-primary">Tecnologias e Ferramentas</h2>
           <p className="text-muted-foreground mb-8">Utilizamos o que há de mais moderno em softwares de análise estrutural e modelagem.</p>
-          
           <Carousel className="w-full max-w-lg mx-auto">
             <CarouselContent>
               {tecnologias.map((tech) => (
-                // ✅ `basis-1/3` força a exibição de 3 itens por vez.
                 <CarouselItem key={tech.name} className="basis-1/3">
                   <div className="flex items-center justify-center p-2 h-48">
-                    <img 
-                      src={tech.image} 
-                      alt={tech.name}
-                      // ✅ A altura foi aumentada para `h-32` (o dobro de h-16).
-                      className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
-                    />
+                    <img src={tech.image} alt={tech.name} className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-110" />
                   </div>
                 </CarouselItem>
               ))}

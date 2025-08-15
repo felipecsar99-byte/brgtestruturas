@@ -122,8 +122,8 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/35 to-background/80" />
         </div>
 
-        <div className="container pt-16 pb-10">
-          <div className="mx-auto max-w-4xl text-center flex flex-col items-center gap-6">
+        <div className="container pt-20 pb-5">
+          <div className="mx-auto max-w-4xl text-center flex flex-col items-center gap-3">
             <img src={logocrua} alt="Logotipo BRGT Engenharia Estrutural" className="h-60 w-auto" />
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Soluções estruturais seguras e sem desperdícios</h1>
             <div className="mt-2">

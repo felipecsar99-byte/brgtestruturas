@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Ícones para o menu (hambúrguer e fechar)
-import { Button } from "@/components/ui/button"; // Componente de botão da sua UI
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion"; // Importando a magia da animação
 import navbarbrgt from "@/assets/navbarbrgt.png";
 
 // --- DADOS E CONFIGURAÇÕES DO COMPONENTE ---
@@ -14,22 +15,19 @@ const NAV_ITEMS = [
   { to: "/contato", label: "Contato" },
 ];
 
-// Função para estilizar os links (tanto para desktop quanto para mobile)
-const getNavItemClass = ({ isActive }: { isActive: boolean }): string =>
-  `transition-colors duration-200 ${
-    isActive
-      ? "text-primary"
-      : "text-foreground/70 hover:text-foreground"
-  }`;
-
 // --- COMPONENTE PRINCIPAL DA NAVBAR ---
 
 export default function Navbar() {
-  // Estado para controlar se o menu mobile está aberto ou fechado
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Função de estilo para os links mobile
+  const getMobileNavItemClass = ({ isActive }: { isActive: boolean }): string =>
+    `transition-colors duration-200 ${
+      isActive ? "text-primary" : "text-foreground/70 hover:text-foreground"
+    }`;
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60 border-b border-white/20">
       <nav className="container flex items-center justify-between h-20">
         
         {/* Bloco do Logotipo */}
@@ -41,19 +39,35 @@ export default function Navbar() {
             loading="eager"
             decoding="async"
           />
-          <span className="sr-only">BRGT Engenharia</span> 
         </Link>
 
-        {/* Links de Navegação para Desktop */}
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+        {/* Links de Navegação para Desktop com Efeito "Liquid Glass" */}
+        <div className="hidden md:flex items-center gap-1 relative bg-muted/40 p-1 rounded-full">
           {NAV_ITEMS.map((item) => (
             <NavLink 
               key={item.to} 
               to={item.to} 
-              className={getNavItemClass} 
+              className={({ isActive }) =>
+                `relative px-4 py-1.5 text-sm font-medium transition-colors z-10 ${
+                  isActive ? "text-primary-foreground" : "text-foreground/70 hover:text-foreground"
+                }`
+              }
               end
             >
-              {item.label}
+              {({ isActive }) => (
+                <>
+                  {/* A "PÍLULA" MÁGICA QUE SE MOVE */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 bg-primary rounded-full"
+                      style={{ borderRadius: 9999 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
+                </>
+              )}
             </NavLink>
           ))}
         </div>
@@ -71,7 +85,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Painel do Menu Mobile (só aparece se isMenuOpen for true) */}
+      {/* Painel do Menu Mobile */}
       {isMenuOpen && (
         <div className="md:hidden bg-background border-t border-border">
           <div className="container flex flex-col items-center gap-4 py-4">
@@ -79,9 +93,9 @@ export default function Navbar() {
               <NavLink 
                 key={item.to} 
                 to={item.to} 
-                className={getNavItemClass} 
+                className={getMobileNavItemClass}
                 end
-                onClick={() => setIsMenuOpen(false)} // Fecha o menu ao clicar num link
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </NavLink>
