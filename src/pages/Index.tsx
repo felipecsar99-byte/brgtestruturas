@@ -45,12 +45,10 @@ const services = [
   { id: "svc6", icon: Ruler, title: "Compatibilização de Estrutura" },
 ];
 
-// Array principal para todos os projetos de destaque
 const projectsData: Project[] = [
     { id: 1, title: "Altos do Aleixo", description: "Projeto em paredes de concreto para condomínio vertical.", image: altosDoAleixoImg, link: "/portfolio/altos-do-aleixo" },
     { id: 2, title: "Residencial Raposa", description: "Projeto em concreto armado de um clube de condomínio de alto padrão.", image: raposaImg, link: "/portfolio/residencial-raposa" },
     { id: 3, title: "Casas Lyon", description: "Projetos em alvenaria estrutural para casas do condomínio horizontal.", image: casasLyonImg, link: "/portfolio/casas-lyon" },  
-    // Projetos da lista (sem imagem por enquanto)
     { id: 4, title: "Casas Haus", description: "Projeto de destaque", image: '' },
     { id: 5, title: "Unique Tower", description: "Projeto de destaque", image: '' },
     { id: 6, title: "Eco Resort", description: "Projeto de destaque", image: '' },
@@ -124,7 +122,7 @@ const Index = () => {
 
         <div className="container pt-20 pb-5">
           <div className="mx-auto max-w-4xl text-center flex flex-col items-center gap-3">
-            <img src={logocrua} alt="Logotipo BRGT Engenharia Estrutural" className="h-60 w-auto" />
+            <img src={logocrua} alt="Logotipo BRGT Engenharia Estrutural" className="h-60 w-auto" loading="eager" />
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Soluções estruturais seguras e sem desperdícios</h1>
             <div className="mt-2">
               <Button asChild><Link to="/contato" aria-label="Solicite um orçamento">Solicite um Orçamento</Link></Button>
