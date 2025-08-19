@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,40 +6,51 @@ import { Textarea } from "@/components/ui/textarea";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Phone, Mail, MessageCircle, Instagram } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha"; // 1. Importando o componente
 
 export default function Contato() {
-  // Estado para guardar os dados do formulário
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
     assunto: '',
     mensagem: '',
   });
-  // Estado para controlar o feedback visual para o utilizador
-  const [status, setStatus] = useState(''); // "", "enviando", "sucesso", "erro"
+  const [status, setStatus] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  // Função que atualiza o estado sempre que o utilizador digita algo
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [id]: value }));
   };
 
-  // Função executada quando o formulário é submetido
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      alert("Por favor, confirme que você não é um robô.");
+      return;
+    }
+
     setStatus('enviando');
 
-    // 👇 SUBSTITUA PELAS SUAS 3 CHAVES OBTIDAS NO PASSO 2
     const serviceID = 'service_vnal9qw';
     const templateID = 'template_hlx83lt';
     const publicKey = 'rnH0oiejUE2yaMYEK';
 
-    emailjs.send(serviceID, templateID, formData, publicKey)
+    // Adiciona o token do reCAPTCHA aos dados a serem enviados
+    const templateParams = {
+      ...formData,
+      'g-recaptcha-response': recaptchaToken,
+    };
+
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
       .then((response) => {
         console.log('E-MAIL ENVIADO!', response.status, response.text);
         setStatus('sucesso');
-        // Limpa o formulário
         setFormData({ nome: '', email: '', assunto: '', mensagem: '' });
+        recaptchaRef.current?.reset();
+        setRecaptchaToken(null);
       }, (err) => {
         console.log('ERRO AO ENVIAR...', err);
         setStatus('erro');
@@ -59,7 +70,6 @@ export default function Contato() {
         <div className="grid lg:grid-cols-2 gap-8">
           
           <form onSubmit={handleSubmit} className="space-y-4" aria-label="Formulário de contato">
-            {/* O atributo "id" de cada campo DEVE ser o mesmo da variável no template (ex: id="nome" -> {{nome}}) */}
             <div>
               <label className="block text-sm mb-1" htmlFor="nome">Nome</label>
               <Input id="nome" value={formData.nome} onChange={handleChange} placeholder="Seu nome" required />
@@ -76,11 +86,18 @@ export default function Contato() {
               <label className="block text-sm mb-1" htmlFor="mensagem">Mensagem</label>
               <Textarea id="mensagem" value={formData.mensagem} onChange={handleChange} placeholder="Como podemos elevar o nível da sua obra?" className="min-h-32" required />
             </div>
+            
+            {/* 2. ADICIONADO O COMPONENTE ReCAPTCHA COM A SUA CHAVE */}
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="6LdweasrAAAAAMvlPm96PwRu5RCjwZ7A-ozR-v0W" 
+              onChange={(token) => setRecaptchaToken(token)}
+            />
+
             <Button type="submit" disabled={status === 'enviando'}>
               {status === 'enviando' ? 'Enviando...' : 'Enviar'}
             </Button>
 
-            {/* Mensagens de feedback para o utilizador */}
             {status === 'sucesso' && <p className="text-green-500 mt-4">Mensagem enviada com sucesso! Obrigado.</p>}
             {status === 'erro' && <p className="text-red-500 mt-4">Ocorreu um erro. Por favor, tente novamente.</p>}
           </form>
@@ -112,7 +129,7 @@ export default function Contato() {
               <AspectRatio ratio={16 / 9}>
                 <iframe
                   title="Mapa de localização BRGT"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.782575454157!2d-49.26388912595932!3d-16.68934148408169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef1690c1a9699%3A0x23a8177a3d1323b7!2sBRGT%20Engenharia%20Estrutural!5e0!3m2!1spt-BR!2sbr!4v1723753239535!5m2!1spt-BR!2sbr"
+                  src="http://googleusercontent.com/maps/google.com/11"
                   className="w-full h-full rounded-md border border-border"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
