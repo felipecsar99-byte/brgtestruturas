@@ -129,7 +129,7 @@ export default function Contato() {
               <AspectRatio ratio={16 / 9}>
                 <iframe
                   title="Mapa de localização BRGT"
-                  src="http://googleusercontent.com/maps/google.com/11"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.131804856215!2d-49.27279422409208!3d-16.72027404643628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0d9608b7bdb%3A0x4ee140a94fd0bb44!2sHirata%20e%20Associados%20Consultoria%20e%20Projetos%20Estruturais!5e0!3m2!1spt-BR!2sbr!4v1755614165162!5m2!1spt-BR!2sbr"
                   className="w-full h-full rounded-md border border-border"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
