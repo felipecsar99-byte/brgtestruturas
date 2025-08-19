@@ -13,9 +13,9 @@ import logocrua from "@/assets/logocruabrgt.png";
 import hero1920 from "@/assets/hero-1920x1080.webp";
 import hero1280 from "@/assets/hero-1280x720.webp";
 import hero768 from "@/assets/hero-768x512.webp";
-import raposaImg from "@/assets/raposa.jpg";
-import altosDoAleixoImg from "@/assets/altosdoaleixo.jpg";
-import casasLyonImg from "@/assets/casaslyon.jpg";
+import raposaImg from "@/assets/raposa.webp";
+import altosDoAleixoImg from "@/assets/altosdoaleixo.webp";
+import casasLyonImg from "@/assets/casaslyon.webp";
 import brgt_logocompleta from "@/assets/brgt_logocompleta.png";
 
 // --- DADOS CENTRALIZADOS ---

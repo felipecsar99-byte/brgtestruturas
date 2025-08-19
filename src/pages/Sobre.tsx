@@ -9,7 +9,7 @@ import { desafios, consequencias, solucoes } from "@/data/sitedata";
 
 // IMPORTAÇÃO DAS IMAGENS DA PÁGINA
 // ✅ A IMAGEM AGORA É IMPORTADA NO FORMATO .webp OTIMIZADO
-import heroSobreNosImg from "@/assets/hero_sobrenos.png";
+import heroSobreNosImg from "@/assets/hero_sobrenos.jpg";
 
 // --- COMPONENTE DA PÁGINA ---
 

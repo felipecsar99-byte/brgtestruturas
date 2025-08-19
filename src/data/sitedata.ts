@@ -1,13 +1,13 @@
 // --- DADOS DOS PROJETOS ---
-import raposaImg from "@/assets/raposa.jpg";
-import altosDoAleixoImg from "@/assets/altosdoaleixo.jpg";
-import casasLyonImg from "@/assets/casaslyon.jpg";
-import camposelisiosimg from "@/assets/camposelisios.png";
-import maxcidade from "@/assets/maxcidadeemp.png";
-import max501 from "@/assets/max501norte.png";
-import parcsul from "@/assets/parcsuluberaba.png";
-import moodclub from "@/assets/moodclub.png";
-import terracosky from "@/assets/terracosky.png";
+import raposaImg from "@/assets/raposa.webp";
+import altosDoAleixoImg from "@/assets/altosdoaleixo.webp";
+import casasLyonImg from "@/assets/casaslyon.webp";
+import camposelisiosimg from "@/assets/camposelisios.webp";
+import maxcidade from "@/assets/maxcidadeemp.webp";
+import max501 from "@/assets/max501norte.webp";
+import parcsul from "@/assets/parcsuluberaba.webp";
+import moodclub from "@/assets/moodclub.webp";
+import terracosky from "@/assets/terracosky.webp";
 
 export interface Project {
   id: number;
