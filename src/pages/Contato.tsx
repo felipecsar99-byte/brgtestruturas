@@ -32,7 +32,7 @@ export default function Contato() {
     // 👇 SUBSTITUA PELAS SUAS 3 CHAVES OBTIDAS NO PASSO 2
     const serviceID = 'service_vnal9qw';
     const templateID = 'template_hlx83lt';
-    const publicKey = 'aFA8H72uRvIqyN9KISKcF';
+    const publicKey = 'rnH0oiejUE2yaMYEK';
 
     emailjs.send(serviceID, templateID, formData, publicKey)
       .then((response) => {
@@ -89,7 +89,7 @@ export default function Contato() {
             <div className="rounded-lg border border-border p-4">
               <h2 className="text-xl font-medium mb-2">Informações de contato</h2>
               <ul className="text-muted-foreground space-y-2">
-                <li className="flex items-center gap-2"><Phone className="text-primary" size={18}/> Telefone: +55 62 9607-0096</li>
+                <li className="flex items-center gap-2"><Phone className="text-primary" size={18}/> Telefone: +55 62 99607-0096</li>
                 <li className="flex items-center gap-2"><Mail className="text-primary" size={18}/> E-mail: brgt@brgt.com.br</li>
               </ul>
               <div className="flex items-center gap-4 mt-4">
