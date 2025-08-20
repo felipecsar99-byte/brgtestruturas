@@ -8,6 +8,13 @@ import max501 from "@/assets/max501norte.webp";
 import parcsul from "@/assets/parcsuluberaba.webp";
 import moodclub from "@/assets/moodclub.webp";
 import terracosky from "@/assets/terracosky.webp";
+import casascannes from "@/assets/port_berlim.webp";
+import casasberlim from "@/assets/port_cannes.webp";
+import portHorizonteImg from "@/assets/port_horizonte.webp";
+import portMaxipeImg from "@/assets/port_maxipe.webp";
+import portScenariumImg from "@/assets/port_scenarium.webp";
+import portSerraImg from "@/assets/port_serra.webp";
+import portV196Img from "@/assets/port_v196.webp";
 
 export interface Project {
   id: number;
@@ -36,14 +43,14 @@ export const projectsData: Project[] = [
     { id: 15, title: "Reservas Granville", description: "Projeto de destaque", image: '' },
     { id: 16, title: "Jardins Vienna", description: "Projeto de destaque", image: '' },
     { id: 17, title: "Max Cidade Empresarial", description: "Projeto de destaque", image: maxcidade },
-    { id: 18, title: "Max Serra Dourada", description: "Projeto de destaque", image: '' },
+    { id: 18, title: "Max Serra Dourada", description: "Projeto de destaque", image: portSerraImg },
     { id: 19, title: "V165 Mattiolli", description: "Projeto de destaque", image: '' },
     { id: 20, title: "Arrimos Cannes", description: "Projeto de destaque", image: '' },
     { id: 21, title: "Arrimos Lyon", description: "Projeto de destaque", image: '' },
     { id: 22, title: "Fundação Cannes", description: "Projeto de destaque", image: '' },
     { id: 23, title: "Orquídeas", description: "Projeto de destaque", image: '' },
     { id: 24, title: "Primaveras", description: "Projeto de destaque", image: '' },
-    { id: 25, title: "Horizonte Ponta Negra", description: "Projeto de destaque", image: '' },
+    { id: 25, title: "Horizonte Ponta Negra", description: "Projeto de destaque", image: portHorizonteImg },
     { id: 26, title: "Casa Karaíba", description: "Projeto de destaque", image: '' },
     { id: 27, title: "Caixa Libri One", description: "Projeto de destaque", image: '' },
     { id: 28, title: "Campos Elísios", description: "Projeto de destaque", image: camposelisiosimg },
@@ -53,8 +60,8 @@ export const projectsData: Project[] = [
     { id: 32, title: "Boa Vista", description: "Projeto de destaque", image: '' },
     { id: 33, title: "Novo Gama", description: "Projeto de destaque", image: '' },
     { id: 34, title: "Torres Akso", description: "Projeto de destaque", image: '' },
-    { id: 35, title: "Max Ipê", description: "Projeto de destaque", image: '' },
-    { id: 36, title: "Scenarium Beira Rio II", description: "Projeto de destaque", image: '' },
+    { id: 35, title: "Max Ipê", description: "Projeto de destaque", image: portMaxipeImg },
+    { id: 36, title: "Scenarium Beira Rio II", description: "Projeto de destaque", image: portScenariumImg },
     { id: 37, title: "V271", description: "Projeto de destaque", image: '' },
     { id: 38, title: "Chácara São Martinho", description: "Projeto de destaque", image: '' },
     { id: 39, title: "Versa", description: "Projeto de destaque", image: '' },
@@ -64,11 +71,13 @@ export const projectsData: Project[] = [
     { id: 43, title: "Mirante Boa Vista", description: "Projeto de destaque", image: '' },
     { id: 44, title: "Max 501 Norte", description: "Projeto de destaque", image: max501 },
     { id: 45, title: "V134", description: "Projeto de destaque", image: '' },
-    { id: 46, title: "V196", description: "Projeto de destaque", image: '' },
+    { id: 46, title: "V196", description: "Projeto de destaque", image: portV196Img },
     { id: 47, title: "Smart Fit Distrito", description: "Projeto de destaque", image: '' },
     { id: 48, title: "FGR S1", description: "Projeto de destaque", image: '' },
     { id: 49, title: "FGR S3", description: "Projeto de destaque", image: '' },
     { id: 50, title: "Mood Club House", description: "Projeto de destaque", image: moodclub },
+    { id: 51, title: "Casas Cannes", description: "Projeto de destaque", image: casascannes },
+    { id: 51, title: "Casas Berlim", description: "Projeto de destaque", image: casasberlim },
     // ... sua lista de projetos existente ...
 ];
 

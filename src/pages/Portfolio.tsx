@@ -18,6 +18,13 @@ const portfolioProjectTitles = [
   "Parc Sul Uberaba",
   "Campos Elísios",
   "Mood Club House",
+  "V196",
+  "Horizonte Ponta Negra",
+  "Max Serra Dourada",
+  "Scenarium Beira Rio II",
+  "Max Ipê",
+  "Casas Cannes",
+  "Casas Berlim",
 ];
 
 // Filtrando os dados para pegar apenas os projetos da lista
@@ -35,7 +42,7 @@ export default function Portfolio() {
       <section className="container py-12">
         <RevealOnScroll>
           <h1 className="text-3xl font-semibold mb-2">Portfólio</h1>
-          <p className="text-muted-foreground mb-8">Explore alguns de nossos projetos de destaque.</p>
+          <p className="text-muted-foreground mb-8">Explore alguns de nossos projetos de destaque. E venha fazer parte dessa história.</p>
         </RevealOnScroll>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

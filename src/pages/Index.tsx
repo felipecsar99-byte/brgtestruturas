@@ -57,10 +57,8 @@ interface Project {
 const clientes = [
   { name: "Akso", image: clienteAkso },
   { name: "Cea", image: clienteCea },
-  { name: "Easy", image: clienteEasy },
   { name: "Fabrizio", image: clienteFabrizio },
   { name: "Fgr", image: clienteFgr },
-  { name: "Haus", image: clienteHaus },
   { name: "Hlts", image: clienteHlts },
   { name: "Maximo", image: clienteMaximo },
   { name: "Om", image: clienteOm },
@@ -68,7 +66,6 @@ const clientes = [
   { name: "Pf", image: clientePf },
   { name: "Rte", image: clienteRte },
   { name: "Telos", image: clienteTelos },
-  { name: "Trust", image: clienteTrust },
   { name: "Vega", image: clienteVega },
   { name: "Vitta", image: clienteVitta },
 ];
