@@ -3,13 +3,24 @@ import { Building2 } from "lucide-react";
 
 // ✅ 1. IMPORTANDO O HOOK useParallax
 import { useParallax } from "@/hooks/use-parallax";
+// --- IMPORTAÇÃO DOS COMPONENTES DE UI ---
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// DADOS IMPORTADOS DO ARQUIVO CENTRAL
-import { desafios, consequencias, solucoes } from "@/data/sitedata";
+// --- DADOS DA PÁGINA ---
+import { solucoes, desafios, consequencias, depoimentos } from "@/data/sitedata";
 
 // IMPORTAÇÃO DAS IMAGENS DA PÁGINA
 // ✅ A IMAGEM AGORA É IMPORTADA NO FORMATO .webp OTIMIZADO
 import heroSobreNosImg from "@/assets/hero_sobrenos.jpg";
+import FotoBRGT from "@/assets/Gemini_Generated_Image_g75esgg75esgg75e.png"
 
 // --- COMPONENTE DA PÁGINA ---
 
@@ -97,15 +108,49 @@ export default function Sobre() {
       {/* --- Seções Finais --- */}
       <section className="container py-16 text-center">
         <div>
-          <h2 className="text-3xl font-semibold mb-3">Equipe BRGT</h2>
-          <p className="text-muted-foreground">Fotos serão adicionadas em breve.</p>
+          <h2 className="text-3xl font-semibold mb-6">Conheça a equipe BRGT</h2>
+          </div>
+          <div className="flex justify-center">
+          <img src={FotoBRGT} alt="Nossa equipe" className="h-80 w-auto" loading="eager" />
         </div>
       </section>
+      {/* --- NOVA SEÇÃO DE DEPOIMENTOS COM CARROSSEL --- */}
       <section className="container pb-16 text-center">
-        <div>
-          <h2 className="text-3xl font-semibold mb-3">Depoimentos</h2>
-          <p className="text-muted-foreground">Veja o que diz quem construiu com a gente.</p>
-        </div>
+        <h2 className="text-3xl font-semibold mb-8">O que os nossos clientes dizem</h2>
+        
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-4xl mx-auto"
+        >
+          <CarouselContent>
+            {depoimentos.map((depoimento, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-4 h-full">
+                  <Card className="h-full flex flex-col justify-between text-left p-6 shadow-lg">
+                    <CardContent className="p-0 pb-6">
+                      <p className="text-muted-foreground italic">"{depoimento.depoimento}"</p>
+                    </CardContent>
+                    <footer className="flex items-center gap-4 pt-6 border-t">
+                      <Avatar>
+                        <AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${depoimento.cliente}`} />
+                        <AvatarFallback>{depoimento.avatar}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <p className="font-semibold">{depoimento.cliente}</p>
+                        <p className="text-sm text-muted-foreground">{depoimento.empresa}</p>
+                      </div>
+                    </footer>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
       </section>
     </main>
   );

@@ -128,3 +128,25 @@ export const metodoSections = [
   },
 
 ];
+    //depoimentos
+
+export const depoimentos = [
+  {
+    cliente: "João Silva",
+    empresa: "Construtora Horizonte",
+    depoimento: "A parceria com a BRGT foi um divisor de águas. A automação e o rigor técnico da equipa trouxeram uma eficiência que nunca tínhamos visto. O projeto foi entregue antes do prazo e com uma precisão impecável.",
+    avatar: "JS", // Iniciais para o avatar
+  },
+  {
+    cliente: "Maria Oliveira",
+    empresa: "Arquitetura Criativa",
+    depoimento: "A compatibilização de projetos em BIM que a BRGT oferece é simplesmente fantástica. Eliminou todos os conflitos que costumávamos encontrar na obra. São verdadeiros parceiros comprometidos com o resultado.",
+    avatar: "MO",
+  },
+  {
+    cliente: "Carlos Pereira",
+    empresa: "Engenharia & Cia",
+    depoimento: "O suporte técnico e a consultoria da BRGT foram essenciais para o sucesso do nosso empreendimento. A equipa é sénior, experiente e sempre disponível para resolver os desafios mais complexos. Recomendo fortemente.",
+    avatar: "CP",
+  },
+];
