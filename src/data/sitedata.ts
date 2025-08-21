@@ -77,7 +77,7 @@ export const projectsData: Project[] = [
     { id: 49, title: "FGR S3", description: "Projeto de destaque", image: '' },
     { id: 50, title: "Mood Club House", description: "Projeto de destaque", image: moodclub },
     { id: 51, title: "Casas Cannes", description: "Projeto de destaque", image: casascannes },
-    { id: 51, title: "Casas Berlim", description: "Projeto de destaque", image: casasberlim },
+
     // ... sua lista de projetos existente ...
 ];
 

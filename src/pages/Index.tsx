@@ -5,7 +5,7 @@ import { Building2, Layers3, Ruler, Hammer, ClipboardCheck, Boxes } from "lucide
 import Autoplay from "embla-carousel-autoplay";
 
 // Components e Hooks customizados
-import { Button } from "@/components/ui/button";
+
 import RevealOnScroll from "@/components/common/RevealOnScroll";
 import { useParallax } from "@/hooks/use-parallax";
 import {
