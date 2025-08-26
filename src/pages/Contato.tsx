@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Phone, Mail, MessageCircle, Instagram } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from "react-google-recaptcha"; // 1. Importando o componente
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contato() {
   const [formData, setFormData] = useState({
@@ -26,19 +26,16 @@ export default function Contato() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!recaptchaToken) {
       alert("Por favor, confirme que você não é um robô.");
       return;
     }
-
     setStatus('enviando');
 
     const serviceID = 'service_vnal9qw';
     const templateID = 'template_hlx83lt';
-    const publicKey = 'rnH0oiejUE2yaMYEK';
+    const publicKey = 'rnH0oiejUE2yaMYEK'; // Certifique-se que esta é a sua Public Key mais recente
 
-    // Adiciona o token do reCAPTCHA aos dados a serem enviados
     const templateParams = {
       ...formData,
       'g-recaptcha-response': recaptchaToken,
@@ -52,7 +49,7 @@ export default function Contato() {
         recaptchaRef.current?.reset();
         setRecaptchaToken(null);
       }, (err) => {
-        console.log('ERRO AO ENVIAR...', err);
+        console.log('ERRO AO ENVIAR:', err); // Adicionado ':' para ver o objeto de erro
         setStatus('erro');
       });
   };
@@ -87,14 +84,13 @@ export default function Contato() {
               <Textarea id="mensagem" value={formData.mensagem} onChange={handleChange} placeholder="Como podemos elevar o nível da sua obra?" className="min-h-32" required />
             </div>
             
-            {/* 2. ADICIONADO O COMPONENTE ReCAPTCHA COM A SUA CHAVE */}
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6Lfkj7IrAAAAACWilmS-xi5VVnPcv2-Z1tsBbA-F" 
+              sitekey="6LdweasrAAAAAMvIPm96PwRu5RCjWZ7A-ozR-v0W" // Sua Chave de Site
               onChange={(token) => setRecaptchaToken(token)}
             />
 
-            <Button type="submit" disabled={status === 'enviando'}>
+            <Button type="submit" disabled={status === 'enviando' || !recaptchaToken}>
               {status === 'enviando' ? 'Enviando...' : 'Enviar'}
             </Button>
 
@@ -129,7 +125,7 @@ export default function Contato() {
               <AspectRatio ratio={16 / 9}>
                 <iframe
                   title="Mapa de localização BRGT"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.131804856215!2d-49.27279422409208!3d-16.72027404643628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0d9608b7bdb%3A0x4ee140a94fd0bb44!2sHirata%20e%20Associados%20Consultoria%20e%20Projetos%20Estruturais!5e0!3m2!1spt-BR!2sbr!4v1755614165162!5m2!1spt-BR!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.782575454157!2d-49.26388912595932!3d-16.68934148408169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef1690c1a9699%3A0x23a8177a3d1323b7!2sBRGT%20Engenharia%20Estrutural!5e0!3m2!1spt-BR!2sbr!4v1723753239535!5m2!1spt-BR!2sbr"
                   className="w-full h-full rounded-md border border-border"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
