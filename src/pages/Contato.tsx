@@ -90,7 +90,7 @@ export default function Contato() {
             {/* 2. ADICIONADO O COMPONENTE ReCAPTCHA COM A SUA CHAVE */}
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LdweasrAAAAAMvlPm96PwRu5RCjwZ7A-ozR-v0W" 
+              sitekey="6Lfkj7IrAAAAACWilmS-xi5VVnPcv2-Z1tsBbA-F" 
               onChange={(token) => setRecaptchaToken(token)}
             />
 
