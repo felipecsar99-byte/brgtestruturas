@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef } from "react"; // Adicionado useRef
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Phone, Mail, MessageCircle, Instagram } from "lucide-react";
 import emailjs from '@emailjs/browser';
-import ReCAPTCHA from "react-google-recaptcha"; // 1. Importando o componente
+import ReCAPTCHA from "react-google-recaptcha"; // 1. IMPORTAÇÃO do componente
 
 export default function Contato() {
   const [formData, setFormData] = useState({
@@ -16,6 +16,7 @@ export default function Contato() {
     mensagem: '',
   });
   const [status, setStatus] = useState('');
+  // 2. ESTADOS E REF para o reCAPTCHA
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
@@ -27,6 +28,7 @@ export default function Contato() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // 3. VERIFICAÇÃO se o reCAPTCHA foi preenchido
     if (!recaptchaToken) {
       alert("Por favor, confirme que você não é um robô.");
       return;
@@ -38,7 +40,7 @@ export default function Contato() {
     const templateID = 'template_hlx83lt';
     const publicKey = 'rnH0oiejUE2yaMYEK';
 
-    // Adiciona o token do reCAPTCHA aos dados a serem enviados
+    // 4. ADIÇÃO do token do reCAPTCHA aos dados de envio
     const templateParams = {
       ...formData,
       'g-recaptcha-response': recaptchaToken,
@@ -49,6 +51,7 @@ export default function Contato() {
         console.log('E-MAIL ENVIADO!', response.status, response.text);
         setStatus('sucesso');
         setFormData({ nome: '', email: '', assunto: '', mensagem: '' });
+        // 5. LIMPEZA do reCAPTCHA após o envio
         recaptchaRef.current?.reset();
         setRecaptchaToken(null);
       }, (err) => {
@@ -70,6 +73,7 @@ export default function Contato() {
         <div className="grid lg:grid-cols-2 gap-8">
           
           <form onSubmit={handleSubmit} className="space-y-4" aria-label="Formulário de contato">
+            {/* ... Seus campos de Input e Textarea ... */}
             <div>
               <label className="block text-sm mb-1" htmlFor="nome">Nome</label>
               <Input id="nome" value={formData.nome} onChange={handleChange} placeholder="Seu nome" required />
@@ -87,10 +91,10 @@ export default function Contato() {
               <Textarea id="mensagem" value={formData.mensagem} onChange={handleChange} placeholder="Como podemos elevar o nível da sua obra?" className="min-h-32" required />
             </div>
             
-            {/* 2. ADICIONADO O COMPONENTE ReCAPTCHA COM A SUA CHAVE */}
+            {/* 6. COMPONENTE ReCAPTCHA no formulário */}
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="6LdweasrAAAAAMvlPm96PwRu5RCjwZ7A-ozR-v0W" 
+              sitekey="6Lfkj7IrAAAAACWilmS-xi5VVnPcv2-Z1tsBbA-F" // <-- SUBSTITUA PELA SUA CHAVE DE SITE okkkkkkkkkkkk
               onChange={(token) => setRecaptchaToken(token)}
             />
 
@@ -102,6 +106,7 @@ export default function Contato() {
             {status === 'erro' && <p className="text-red-500 mt-4">Ocorreu um erro. Por favor, tente novamente.</p>}
           </form>
 
+          {/* ... O resto do seu componente ... */}
           <div className="space-y-6">
             <div className="rounded-lg border border-border p-4">
               <h2 className="text-xl font-medium mb-2">Informações de contato</h2>
