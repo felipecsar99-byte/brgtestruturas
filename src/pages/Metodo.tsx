@@ -159,22 +159,22 @@ export default function Metodo() {
               </TableHeader>
               <TableBody>
                 <TableRow>
-                  <TableCell className="font-medium">1. Imersão</TableCell>
+                  <TableCell className="font-medium">Imersão</TableCell>
                   <TableCell>Realizamos um diagnóstico completo para entender suas metas e desafios.</TableCell>
                   <TableCell>Um plano estratégico claro e uma solução estrutural personalizada.</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">2. Análise e Otimização</TableCell>
+                  <TableCell className="font-medium">Análise e Otimização</TableCell>
                   <TableCell>Aplicamos o <strong>Método BRGT</strong> para otimizar e preparar os dados.</TableCell>
                   <TableCell>A segurança de uma análise aprofundada e a base para um processo mais rápido.</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">3. Modelagem BIM</TableCell>
+                  <TableCell className="font-medium">Modelagem BIM</TableCell>
                   <TableCell>Nossos plugins automatizam a criação do modelo 3D no Revit.</TableCell>
                   <TableCell>Um projeto 100% compatível, livre de conflitos e com precisão milimétrica.</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell className="font-medium">4. Entrega e Suporte</TableCell>
+                  <TableCell className="font-medium">Entrega e Suporte</TableCell>
                   <TableCell>Entregamos um projeto executivo inteligente e oferecemos suporte contínuo.</TableCell>
                   <TableCell>A tranquilidade de ter um parceiro comprometido com o sucesso da sua obra.</TableCell>
                 </TableRow>

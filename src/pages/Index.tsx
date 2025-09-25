@@ -44,7 +44,7 @@ import clienteTrust from "@/assets/cliente_trust.webp";
 import clienteVega from "@/assets/cliente_vega.webp";
 import clienteVitta from "@/assets/cliente_vitta.webp";
 
-// --- DADOS CENTRALIZADOS ---
+// DADOS CENTRALIZADOS
 
 interface Project {
   id: number;
@@ -92,7 +92,6 @@ const projectsData: Project[] = [
     { id: 1, title: "Altos do Aleixo", description: "Projeto em paredes de concreto para condomínio vertical.", image: altosDoAleixoImg, link: "/portfolio/altos-do-aleixo" },
     { id: 2, title: "Residencial Raposa", description: "Projeto em concreto armado de um clube de condomínio de alto padrão.", image: raposaImg, link: "/portfolio/residencial-raposa" },
     { id: 3, title: "Casas Lyon", description: "Projetos em alvenaria estrutural para casas do condomínio horizontal.", image: casasLyonImg, link: "/portfolio/casas-lyon" },  
-    // ... (resto da sua lista de projetos)
     { id: 4, title: "Casas Haus", description: "Projeto de destaque", image: '' },
     { id: 5, title: "Unique Tower", description: "Projeto de destaque", image: '' },
     { id: 6, title: "Eco Resort", description: "Projeto de destaque", image: '' },
@@ -181,7 +180,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+    
       {/* Vantagens */}
       <section className="relative py-20 md:py-28 text-center" aria-label="Vantagens do nosso escritório">
         <div ref={advRef} className="absolute inset-0 -z-10 opacity-60 will-change-transform">
@@ -224,98 +223,98 @@ const Index = () => {
       </section>
       
       {/* Serviços */}
-      <section className="py-16 md:py-20 text-center" aria-label="Serviços">
-        <div className="container">
-            <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold mb-8">Serviços</h2></RevealOnScroll>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map(({ id, icon: Icon, title }, i) => (
-                <RevealOnScroll key={id} delay={i * 70}>
-                <Link to="/contato" className="group block rounded-lg border border-border p-6 bg-card transition-transform hover:translate-y-[-2px] h-full">
-                    <Icon className="mb-3 text-primary mx-auto" size={32} />
-                    <h3 className="font-medium">{title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Saiba mais</p>
-                </Link>
-                </RevealOnScroll>
-            ))}
-            </div>
-            <div className="mt-8 flex justify-center">
-            <Button asChild><Link to="/portfolio">Explore Nossos Projetos</Link></Button>
-            </div>
-        </div>
-      </section>
+        <section className="py-16 md:py-20 text-center" aria-label="Serviços">
+          <div className="container">
+              <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold text-[#f16136] mb-8">Serviços</h2></RevealOnScroll>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map(({ id, icon: Icon, title }, i) => (
+                  <RevealOnScroll key={id} delay={i * 70}>
+                  <Link to="/contato" className="group block rounded-lg border border-border p-6 bg-card transition-transform hover:translate-y-[-2px] h-full">
+                      <Icon className="mb-3 text-primary mx-auto" size={32} />
+                      <h3 className="font-medium">{title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">Saiba mais</p>
+                  </Link>
+                  </RevealOnScroll>
+              ))}
+              </div>
+              <div className="mt-8 flex justify-center">
+              <Button asChild><Link to="/portfolio">Explore Nossos Projetos</Link></Button>
+              </div>
+          </div>
+        </section>
 
-      {/* Últimos Projetos (Dinâmico) */}
-      <section className="py-16 md:py-20 border-t border-border text-center" aria-label="Projetos de destaque">
-        <div className="container">
-            <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold mb-8">Projetos de Destaque</h2></RevealOnScroll>
+      <div className="bg-[#f48861]">
+        {/* Últimos Projetos (Dinâmico) */}
+        <section className="py-16 md:py-20 border-t border-border text-center" aria-label="Projetos de destaque">
+          <div className="container">
+            <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold mb-8 text-white">Projetos de Destaque</h2></RevealOnScroll>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {projectsData.slice(0, 3).map((project, index) => (
+              {projectsData.slice(0, 3).map((project, index) => (
                 <RevealOnScroll key={project.id} delay={index * 100}>
-                <Link to={project.link || '#'} className="block group">
-                    <div className="aspect-[16/10] w-full rounded-lg overflow-hidden border border-border mb-4 shadow-md">
-                    <img src={project.image} alt={`Imagem do projeto ${project.title}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+                  {/* A tag <Link> foi substituída por uma <div> */}
+                  <div className="block group">
+                    <div className="aspect-[16/10] w-full rounded-lg overflow-hidden mb-4 shadow-md">
+                      <img src={project.image} alt={`Imagem do projeto ${project.title}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                     </div>
                     <div>
-                    <h3 className="font-semibold text-lg text-foreground">{project.title}</h3>
-                    <p className="text-muted-foreground mt-1 text-sm">{project.description}</p>
+                      <h3 className="font-semibold text-lg text-white">{project.title}</h3>
+                      <p className="text-muted-white mt-1 text-white">{project.description}</p>
                     </div>
-                </Link>
-                </RevealOnScroll>
-            ))}
-            </div>
-        </div>
-      </section>
-
-      {/* Lista de Projetos de Destaque (Dinâmica) */}
-      <section className="py-14 text-center" aria-label="Lista de Projetos">
-        <div className="container">
-            <RevealOnScroll><h2 className="text-xl md:text-2xl font-semibold mb-4">Confira Outros Projetos</h2></RevealOnScroll>
-            <RevealOnScroll>
-            <ul className="text-muted-foreground grid md:grid-cols-3 gap-x-6 gap-y-2 list-none">
-                {projectsData.map((project) => (
-                <li key={project.id}>{project.title}</li>
-                ))}
-            </ul>
-            </RevealOnScroll>
-        </div>
-      </section>
-
-      {/* Seção de Clientes e Parceiros */}
-      <section className="container py-16 text-center">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-2">Clientes e Parceiros</h2>
-          <p className="text-muted-foreground mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
-          <Carousel
-            plugins={[
-              Autoplay({
-                delay: 2000,
-                stopOnInteraction: false,
-              }),
-            ]}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {clientes.map((cliente) => (
-                <CarouselItem key={cliente.name} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
-                  <div className="p-4">
-                    <img
-                      src={cliente.image}
-                      alt={cliente.name}
-                      className="h-25 w-full object-contain grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100"
-                    />
                   </div>
-                </CarouselItem>
+                </RevealOnScroll>
               ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
+      </div>
+        {/* Lista de Projetos de Destaque (Dinâmica) */}
+        <section className="py-14 text-center" aria-label="Lista de Projetos">
+          <div className="container">
+              <RevealOnScroll><h2 className="text-xl md:text-2xl font-semibold mb-4 text-mb">Confira Outros Projetos</h2></RevealOnScroll>
+              <RevealOnScroll>
+              <ul className="text-mb grid md:grid-cols-3 gap-x-6 gap-y-2 list-none">
+                  {projectsData.map((project) => (
+                  <li key={project.id}>{project.title}</li>
+                  ))}
+              </ul>
+              </RevealOnScroll>
+          </div>
+        </section>
+      
+        {/* Seção de Clientes e Parceiros */}
+        <section className="container py-16 text-center">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-semibold mb-2 text-white">Clientes e Parceiros</h2>
+            <p className="text-white mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                  stopOnInteraction: false,
+                }),
+              ]}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {clientes.map((cliente) => (
+                  <CarouselItem key={cliente.name} className="basis-1/4 md:basis-1/4 lg:basis-1/6">
+                    <div className="p-4">
+                      <img
+                        src={cliente.image}
+                        alt={cliente.name}
+                        className="h-60 w-full object-contain"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        </section>
     </>
   );
 };

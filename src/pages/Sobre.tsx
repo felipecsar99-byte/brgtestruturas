@@ -129,7 +129,7 @@ export default function Sobre() {
             {depoimentos.map((depoimento, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-4 h-full">
-                  <Card className="h-full flex flex-col justify-between text-left p-6 shadow-lg">
+                  <Card className="h-full flex flex-col justify-between transition-all text-left p-6 shadow-lg">
                     <CardContent className="p-0 pb-6">
                       <p className="text-muted-foreground italic">"{depoimento.depoimento}"</p>
                     </CardContent>
@@ -148,8 +148,6 @@ export default function Sobre() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
         </Carousel>
       </section>
     </main>
