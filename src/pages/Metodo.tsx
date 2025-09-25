@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Zap } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 
 // ✅ 1. IMPORTANDO O HOOK useParallax
 import { useParallax } from "@/hooks/use-parallax";
@@ -188,36 +189,30 @@ export default function Metodo() {
       <section className="container py-16">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-2 text-primary">Tecnologias e Ferramentas</h2>
-          <p className="text-muted-foreground mb-8">Utilizamos o que há de mais moderno em softwares de análise estrutural e modelagem.</p>
-          <Carousel className="w-full max-w-lg mx-auto">
-            <CarouselContent>
-              {tecnologias.map((tech) => (
-                <CarouselItem key={tech.name} className="basis-1/3">
-                  <div className="flex items-center justify-center p-2 h-48">
-                    <img src={tech.image} alt={tech.name} className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-110" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </section>
-
-      {/* --- Seções Finais --- */}
-      <section className="container py-16">
-        <div className="max-w-3xl mx-auto text-center space-y-10">
-          {secoesFinais.map((section) => (
-            <article key={section.title}>
-              <h2 className="text-3xl font-semibold mb-3 text-primary">
-                {section.title}
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                {section.content}
-              </p>
-            </article>
-          ))}
+            <p className="text-muted-foreground mb-8">Utilizamos o que há de mais moderno em softwares de análise estrutural e modelagem.</p>
+              <Carousel
+                plugins={[ // ✅ Adicionado plugins aqui
+                  Autoplay({
+                    delay: 2000, // Tempo em milissegundos entre cada slide (2 segundos)
+                    stopOnInteraction: false, // Continua alternando mesmo se o usuário interagir
+                  }),
+                ]}
+                opts={{ // ✅ Adicionado opts aqui
+                  align: "start",
+                  loop: true, // ✅ Essencial para o carrossel ser infinito
+                }}
+                className="w-full max-w-lg mx-auto"
+                >
+                <CarouselContent>
+                  {tecnologias.map((tech) => (
+                    <CarouselItem key={tech.name} className="basis-1/3">
+                      <div className="flex items-center justify-center p-2 h-48">
+                        <img src={tech.image} alt={tech.name} className="h-32 w-auto object-contain transition-transform duration-100 hover:scale-110" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
         </div>
       </section>
     </main>

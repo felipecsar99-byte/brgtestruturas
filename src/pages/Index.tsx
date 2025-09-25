@@ -24,7 +24,7 @@ import hero768 from "@/assets/hero-768x512.webp";
 import raposaImg from "@/assets/raposa.webp";
 import altosDoAleixoImg from "@/assets/altosdoaleixo.webp";
 import casasLyonImg from "@/assets/casaslyon.webp";
-import imagemMetodo from "@/assets/imagem_metodobrgt.png";
+import imagemMetodo from "@/assets/imagem_metodobrgt.png.png";
 
 // Importando as imagens dos clientes
 import clienteAkso from "@/assets/cliente_akso.webp";
@@ -205,18 +205,20 @@ const Index = () => {
       <section className="container py-24 text-center">
         <RevealOnScroll>
           <h2 className="text-3xl font-semibold mb-2 text-[#f16136]">Nosso Ecossistema de Automação</h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground mb-8">
+          <p className="max-w-2xl mx-auto text-muted-foreground mb-0">
             Desenvolvemos um conjunto de soluções próprias que integram os principais softwares do mercado, eliminando retrabalhos, reduzindo prazos e garantindo entregas mais precisas e econômicas.
           </p>
           <div className="flex justify-center">
-            <img 
-              src={imagemMetodo} 
-              alt="Fluxograma do Método BRGT" 
-              className="max-w-xs w-full h-800 rounded-lg shadow-lg"
-              loading="lazy"
-            />
+            <div className="w-full max-w-md aspect-square relative overflow-hidden rounded-lg">
+              <img 
+                src={imagemMetodo} 
+                alt="Fluxograma do Método BRGT" 
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
-          <Button asChild className="mt-8">
+          <Button asChild className="mt-0">
             <Link to="/metodo">Conheça o Método BRGT</Link>
           </Button>
         </RevealOnScroll>
@@ -301,7 +303,7 @@ const Index = () => {
             >
               <CarouselContent>
                 {clientes.map((cliente) => (
-                  <CarouselItem key={cliente.name} className="basis-1/4 md:basis-1/4 lg:basis-1/6">
+                  <CarouselItem key={cliente.name} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
                     <div className="p-4">
                       <img
                         src={cliente.image}
