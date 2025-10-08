@@ -15,6 +15,13 @@ import portMaxipeImg from "@/assets/port_maxipe.webp";
 import portScenariumImg from "@/assets/port_scenarium.webp";
 import portSerraImg from "@/assets/port_serra.webp";
 import portV196Img from "@/assets/port_v196.webp";
+import YURI from "@/assets/YUROBOY.webp";
+import GUI from "@/assets/GUI.webp";
+import CESAR from "@/assets/CESAR.webp";
+import BRAGATO from "@/assets/BRAGATO.webp";
+import VITOR from "@/assets/VITOR.webp";
+import CARLAO from "@/assets/CARLAO.webp";
+import GLEYSER from "@/assets/GLEYSER.webp"
 
 export interface Project {
   id: number;
@@ -142,7 +149,7 @@ export const depoimentos = [
     cliente: "João Silva",
     empresa: "Construtora Horizonte",
     depoimento: "A parceria com a BRGT foi um divisor de águas. A automação e o rigor técnico da equipa trouxeram uma eficiência que nunca tínhamos visto. O projeto foi entregue antes do prazo e com uma precisão impecável.",
-    avatar: "JS", // Iniciais para o avatar
+    avatar: "JS",
   },
   {
     cliente: "Maria Oliveira",
@@ -155,5 +162,58 @@ export const depoimentos = [
     empresa: "Engenharia & Cia",
     depoimento: "O suporte técnico e a consultoria da BRGT foram essenciais para o sucesso do nosso empreendimento. A equipa é sénior, experiente e sempre disponível para resolver os desafios mais complexos. Recomendo fortemente.",
     avatar: "CP",
+  },
+];
+
+// MEMBROS DA BRGT
+export interface TeamMember {
+  id: number;
+  nome: string;
+  funcao: string;
+  imagem: any;
+}
+
+export const teamMembers: TeamMember[] = [
+  {
+    id: 1,
+    nome: "Gustavo Bragato",
+    funcao: "Diretor Executivo",
+    imagem: BRAGATO, 
+  },
+  {
+    id: 2,
+    nome: "Yuri Amaral",
+    funcao: "Projetista",
+    imagem: YURI,
+  },
+  {
+    id: 3,
+    nome: "Guilhermy Felix",
+    funcao: "Projetista",
+    imagem: GUI,
+  },
+  {
+    id: 4,
+    nome: "Carlos Eduardo",
+    funcao: "Projetista",
+    imagem: CARLAO,
+  },
+  {
+    id: 5,
+    nome: "Gleyser Diniz",
+    funcao: "Projetista",
+    imagem: GLEYSER,
+  },
+  {
+    id: 6,
+    nome: "Vitor Santos",
+    funcao: "Estagiário",
+    imagem: VITOR,
+  },
+  {
+    id: 7,
+    nome: "Felipe César",
+    funcao: "Estagiário",
+    imagem: CESAR,
   },
 ];

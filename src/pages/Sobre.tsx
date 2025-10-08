@@ -8,19 +8,16 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 // --- DADOS DA PÁGINA ---
-import { solucoes, desafios, consequencias, depoimentos } from "@/data/sitedata";
+import { solucoes, desafios, consequencias, depoimentos, teamMembers } from "@/data/sitedata";
 
 // IMPORTAÇÃO DAS IMAGENS DA PÁGINA
 // ✅ A IMAGEM AGORA É IMPORTADA NO FORMATO .webp OTIMIZADO
 import heroSobreNosImg from "@/assets/hero_sobrenos.jpg";
-import FotoBRGT from "@/assets/Gemini_Generated_Image_g75esgg75esgg75e.png"
 
 // --- COMPONENTE DA PÁGINA ---
 
@@ -33,7 +30,7 @@ export default function Sobre() {
       <Helmet>
         <title>Sobre nós | BRGT Engenharia Estrutural</title>
         <meta name="description" content="Conheça a BRGT: formação, atuação e como ajudamos a construir estruturas seguras e eficientes." />
-        <link rel="canonical" href="https://www.seudominio.com.br/sobre" />
+        <link rel="canonical" href="https://www.brgt.com.br/sobre" />
       </Helmet>
 
       {/* --- Seção Hero (COM PARALLAX E OTIMIZAÇÃO DE IMAGEM) --- */}
@@ -59,10 +56,10 @@ export default function Sobre() {
           <div className="bg-background rounded-lg shadow-xl p-6 pt-12 md:p-8 md:pt-16 text-center">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="bg-[#f16136] rounded-md shadow-lg p-3 w-20 h-20 md:w-24 md:h-24 grid place-content-center">
-                <Building2 className="w-8 h-8 md:w-10 md-h-10 text-white" />
+                <Building2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
               </div>
             </div>
-            <h1 className="text-2xl md:text-3xl font-semibold mb-4">Sobre Nós</h1>
+            <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-[#ff6130]">Sobre Nós</h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               Desde 2018, a BRGT transforma a forma de projetar estruturas no Brasil, unindo alto rigor técnico e inovação em automação para entregar soluções seguras, econômicas e eficientes. Nosso time desenvolve plugins exclusivos em Python para integração com TQS, Revit e Excel, acelerando processos e garantindo precisão em cada etapa. Utilizamos a metodologia BIM para compatibilizar e otimizar projetos, reduzindo prazos e evitando retrabalhos. Com mais de 100 projetos concluídos e mais de 600.000 m² projetados em mais de 10 estados, operamos 100% de forma remota, atendendo clientes em todo o país com agilidade, clareza e compromisso com resultados reais.
             </p>
@@ -74,13 +71,13 @@ export default function Sobre() {
       <section className="container py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
           <article className="rounded-lg border border-border p-8 bg-card h-full text-center shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">Desafios de quem constrói hoje</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Desafios de quem constrói hoje</h2>
             <ul className="space-y-2 list-disc list-inside text-muted-foreground text-left inline-block">
               {desafios.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </article>
           <article className="rounded-lg border border-border p-8 bg-card h-full text-center shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">Consequências desses problemas</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Consequências desses problemas</h2>
             <ul className="space-y-2 list-disc list-inside text-muted-foreground text-left inline-block">
               {consequencias.map((item) => <li key={item}>{item}</li>)}
             </ul>
@@ -91,13 +88,13 @@ export default function Sobre() {
       {/* --- Seção de Soluções --- */}
       <section className="container py-16">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold">Como a BRGT pode te ajudar?</h2>
+          <h2 className="text-3xl font-semibold text-[#ff6130]">Como a BRGT pode te ajudar?</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {solucoes.map((solucao) => (
             <div key={solucao.title}>
               <article className="rounded-lg border border-border p-6 bg-card h-full flex flex-col items-center text-center shadow-lg">
-                <h3 className="font-medium mb-2 text-[#ff6130]">{solucao.title}</h3>
+                <h3 className="font-medium mb-2">{solucao.title}</h3>
                 <p className="text-sm text-muted-foreground">{solucao.text}</p>
               </article>
             </div>
@@ -105,18 +102,43 @@ export default function Sobre() {
         </div>
       </section>
       
-      {/* --- Seções Finais --- */}
-      <section className="container py-16 text-center">
-        <div>
-          <h2 className="text-3xl font-semibold mb-6">Conheça a equipe BRGT</h2>
-          </div>
-          <div className="flex justify-center">
-          <img src={FotoBRGT} alt="Nossa equipe" className="h-80 w-auto" loading="eager" />
+{/* --- EQUIPE BRGT (COM CARDS DINÂMICOS E CENTRALIZADOS) --- */}
+      <section className="container py-24 text-center">
+        <h2 className="text-3xl font-semibold mb-12 text-[#ff6130]">Conheça a equipe BRGT</h2>
+        {/* ✅ Usamos Flexbox com 'wrap' e 'justify-center' para o alinhamento perfeito */}
+        <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+          {teamMembers.map((membro) => (
+            <div key={membro.id} className="text-center w-full max-w-[240px] sm:w-1/2 md:w-1/3">
+              {/* Contêiner da Imagem */}
+              <div className="aspect-square w-full mx-auto mb-4 rounded-lg overflow-hidden bg-muted shadow-md">
+                {membro.imagem ? (
+                  <img
+                    src={membro.imagem}
+                    alt={`Foto de ${membro.nome}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  // Placeholder para quando não houver imagem
+                  <div className="w-full h-full grid place-content-center text-muted-foreground text-sm">
+                    Foto
+                  </div>
+                )}
+              </div>
+
+              {/* Informações */}
+              <div>
+                <h3 className="font-semibold text-lg text-primary">{membro.nome}</h3>
+                <p className="text-muted-foreground">{membro.funcao}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
+
       {/* --- NOVA SEÇÃO DE DEPOIMENTOS COM CARROSSEL --- */}
       <section className="container pb-16 text-center">
-        <h2 className="text-3xl font-semibold mb-8">O que os nossos clientes dizem</h2>
+        <h2 className="text-3xl font-semibold mb-8 text-[#ff6130]">O que os nossos clientes dizem</h2>
         
         <Carousel
           opts={{
