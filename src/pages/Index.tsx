@@ -12,8 +12,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 // Assets (Imagens)
@@ -286,8 +284,8 @@ const Index = () => {
         {/* Seção de Clientes e Parceiros */}
         <section className="container py-16 text-center">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-2 text-white">Clientes e Parceiros</h2>
-            <p className="text-white mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
+            <h2 className="text-3xl font-semibold mb-2">Clientes e Parceiros</h2>
+            <p className="mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
             <Carousel
               plugins={[
                 Autoplay({

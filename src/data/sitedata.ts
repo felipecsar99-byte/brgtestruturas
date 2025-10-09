@@ -22,6 +22,7 @@ import BRAGATO from "@/assets/BRAGATO.webp";
 import VITOR from "@/assets/VITOR.webp";
 import CARLAO from "@/assets/CARLAO.webp";
 import GLEYSER from "@/assets/GLEYSER.webp"
+import morfigueira from "@/assets/mor_figueira.webp"
 
 export interface Project {
   id: number;
@@ -81,9 +82,10 @@ export const projectsData: Project[] = [
     { id: 47, title: "Smart Fit Distrito", description: "Projeto de destaque", image: '' },
     { id: 48, title: "FGR S1", description: "Projeto de destaque", image: '' },
     { id: 49, title: "FGR S3", description: "Projeto de destaque", image: '' },
-    { id: 50, title: "Mood Club House", description: "Concreto Armado", image: moodclub },
+    { id: 50, title: "Mood Club House", description: "Alvenaria Estrutural", image: moodclub },
     { id: 51, title: "Casas Cannes", description: "Alvenaria Estrutural", image: casascannes },
     { id: 52, title: "Casas Berlim", description: "Alvenaria Estrutural", image: casasberlim },
+    { id: 53, title: "Mor Figueira Residence", description: "Paredes de Concreto", image: morfigueira },
 ];
 
 

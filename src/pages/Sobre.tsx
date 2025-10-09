@@ -1,5 +1,37 @@
 import { Helmet } from "react-helmet-async";
 import { Building2 } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+
+// Importando clientes
+import clienteAkso from "@/assets/cliente_akso.webp";
+import clienteCea from "@/assets/cliente_cea.webp";
+import clienteFabrizio from "@/assets/cliente_fabrizio.webp";
+import clienteFgr from "@/assets/cliente_fgr.webp";
+import clienteHlts from "@/assets/cliente_hlts.webp";
+import clienteMaximo from "@/assets/cliente_maximo.webp";
+import clienteOm from "@/assets/cliente_om.webp";
+import clientePafil from "@/assets/cliente_pafil.webp";
+import clientePf from "@/assets/cliente_pf.webp";
+import clienteRte from "@/assets/cliente_rte.webp";
+import clienteTelos from "@/assets/cliente_telos.webp";
+import clienteVega from "@/assets/cliente_vega.webp";
+import clienteVitta from "@/assets/cliente_vitta.webp";
+
+const clientes = [
+  { name: "Akso", image: clienteAkso },
+  { name: "Cea", image: clienteCea },
+  { name: "Fabrizio", image: clienteFabrizio },
+  { name: "Fgr", image: clienteFgr },
+  { name: "Hlts", image: clienteHlts },
+  { name: "Maximo", image: clienteMaximo },
+  { name: "Om", image: clienteOm },
+  { name: "Pafil", image: clientePafil },
+  { name: "Pf", image: clientePf },
+  { name: "Rte", image: clienteRte },
+  { name: "Telos", image: clienteTelos },
+  { name: "Vega", image: clienteVega },
+  { name: "Vitta", image: clienteVitta },
+];
 
 // ✅ 1. IMPORTANDO O HOOK useParallax
 import { useParallax } from "@/hooks/use-parallax";
@@ -102,76 +134,76 @@ export default function Sobre() {
         </div>
       </section>
       
-{/* --- EQUIPE BRGT (COM CARDS DINÂMICOS E CENTRALIZADOS) --- */}
-      <section className="container py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-12 text-[#ff6130]">Conheça a equipe BRGT</h2>
-        {/* ✅ Usamos Flexbox com 'wrap' e 'justify-center' para o alinhamento perfeito */}
-        <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-          {teamMembers.map((membro) => (
-            <div key={membro.id} className="text-center w-full max-w-[240px] sm:w-1/2 md:w-1/3">
-              {/* Contêiner da Imagem */}
-              <div className="aspect-square w-full mx-auto mb-4 rounded-lg overflow-hidden bg-muted shadow-md">
-                {membro.imagem ? (
-                  <img
-                    src={membro.imagem}
-                    alt={`Foto de ${membro.nome}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                ) : (
-                  // Placeholder para quando não houver imagem
-                  <div className="w-full h-full grid place-content-center text-muted-foreground text-sm">
-                    Foto
-                  </div>
-                )}
-              </div>
+    {/* --- EQUIPE BRGT (COM CARDS DINÂMICOS E CENTRALIZADOS) --- */}
+      <div className="bg-[#f48861]">
+        <section className="container py-24 text-center">
+          <h2 className="text-3xl font-bold mb-12 text-white">Conheça a equipe BRGT</h2>
+          {/* ✅ Usamos Flexbox com 'wrap' e 'justify-center' para o alinhamento perfeito */}
+          <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+            {teamMembers.map((membro) => (
+              <div key={membro.id} className="text-center w-full max-w-[240px] sm:w-1/2 md:w-1/3">
+                {/* Contêiner da Imagem */}
+                <div className="aspect-square w-full mx-auto mb-4 rounded-lg overflow-hidden bg-muted shadow-md">
+                  {membro.imagem ? (
+                    <img
+                      src={membro.imagem}
+                      alt={`Foto de ${membro.nome}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    // Placeholder para quando não houver imagem
+                    <div className="w-full h-full grid place-content-center text-muted-foreground text-sm">
+                      Foto
+                    </div>
+                  )}
+                </div>
 
               {/* Informações */}
               <div>
-                <h3 className="font-semibold text-lg text-primary">{membro.nome}</h3>
-                <p className="text-muted-foreground">{membro.funcao}</p>
+                <h3 className="font-semibold text-lg text-white">{membro.nome}</h3>
+                <p className="text-muted-foreground text-black">{membro.funcao}</p>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* --- NOVA SEÇÃO DE DEPOIMENTOS COM CARROSSEL --- */}
-      <section className="container pb-16 text-center">
-        <h2 className="text-3xl font-semibold mb-8 text-[#ff6130]">O que os nossos clientes dizem</h2>
-        
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-4xl mx-auto"
-        >
-          <CarouselContent>
-            {depoimentos.map((depoimento, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-4 h-full">
-                  <Card className="h-full flex flex-col justify-between transition-all text-left p-6 shadow-lg">
-                    <CardContent className="p-0 pb-6">
-                      <p className="text-muted-foreground italic">"{depoimento.depoimento}"</p>
-                    </CardContent>
-                    <footer className="flex items-center gap-4 pt-6 border-t">
-                      <Avatar>
-                        <AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${depoimento.cliente}`} />
-                        <AvatarFallback>{depoimento.avatar}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <p className="font-semibold">{depoimento.cliente}</p>
-                        <p className="text-sm text-muted-foreground">{depoimento.empresa}</p>
-                      </div>
-                    </footer>
-                  </Card>
-                </div>
-              </CarouselItem>
             ))}
-          </CarouselContent>
-        </Carousel>
-      </section>
+          </div>
+        </section>
+      </div>
+
+        {/* Seção de Clientes e Parceiros */}
+        <section className="container py-16 text-center">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-semibold mb-2">Clientes e Parceiros</h2>
+            <p className="mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                  stopOnInteraction: false,
+                }),
+              ]}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {clientes.map((cliente) => (
+                  <CarouselItem key={cliente.name} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
+                    <div className="p-4">
+                      <img
+                        src={cliente.image}
+                        alt={cliente.name}
+                        className="h-60 w-full object-contain"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        </section>
     </main>
   );
 }
