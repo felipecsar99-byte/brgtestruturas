@@ -96,7 +96,7 @@ export default function Metodo() {
                 <Zap className="w-8 h-8 md:w-10 md-h-10 text-white" />
               </div>
             </div>
-            <h1 className="text-2xl md:text-3xl font-semibold mb-4">{introducao?.title}</h1>
+            <h1 className="text-2xl md:text-3xl font-semibold mb-4 text-[#ff6130]">{introducao?.title}</h1>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               {introducao?.content}
             </p>
@@ -108,7 +108,7 @@ export default function Metodo() {
       <section className="container py-16">
         <Card className="max-w-5xl mx-auto text-center p-8 shadow-xl">
           <CardHeader>
-            <CardTitle className="text-3xl font-semibold mb-2">Plugins Autônomos</CardTitle>
+            <CardTitle className="text-3xl font-semibold mb-2 text-[#ff6130]">Plugins Autônomos</CardTitle>
             <CardDescription className="text-lg text-muted-foreground">Para mais informações sobre como vamos elevar a sua obra, clique nos cards.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -145,46 +145,47 @@ export default function Metodo() {
         </Card>
       </section>
 
-      {/* --- Seção de Processo de Trabalho --- */}
-      <section className="container py-16">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold mb-8">Processo de Trabalho</h2>
-          <div className="bg-card rounded-lg border overflow-hidden shadow-lg">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="font-semibold text-foreground text-center">Etapa</TableHead>
-                  <TableHead className="font-semibold text-foreground text-center">O que fazemos</TableHead>
-                  <TableHead className="font-semibold text-foreground text-center">O que você ganha</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell className="font-medium">Imersão</TableCell>
-                  <TableCell>Realizamos um diagnóstico completo para entender suas metas e desafios.</TableCell>
-                  <TableCell>Um plano estratégico claro e uma solução estrutural personalizada.</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">Análise e Otimização</TableCell>
-                  <TableCell>Aplicamos o <strong>Método BRGT</strong> para otimizar e preparar os dados.</TableCell>
-                  <TableCell>A segurança de uma análise aprofundada e a base para um processo mais rápido.</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">Modelagem BIM</TableCell>
-                  <TableCell>Nossos plugins automatizam a criação do modelo 3D no Revit.</TableCell>
-                  <TableCell>Um projeto 100% compatível, livre de conflitos e com precisão milimétrica.</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-medium">Entrega e Suporte</TableCell>
-                  <TableCell>Entregamos um projeto executivo inteligente e oferecemos suporte contínuo.</TableCell>
-                  <TableCell>A tranquilidade de ter um parceiro comprometido com o sucesso da sua obra.</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+        {/* --- Seção de Processo de Trabalho --- */}
+      <div className="bg-[#f48861]">
+        <section className="container py-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-8 text-white">Processo de Trabalho</h2>
+            <div className="bg-card rounded-lg border overflow-hidden shadow-lg">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">ETAPA</TableHead>
+                    <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">O QUE FAZEMOS?</TableHead>
+                    <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">O QUE VOCÊ GANHA?</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">Imersão</TableCell>
+                    <TableCell>Realizamos um diagnóstico completo para entender suas metas e desafios.</TableCell>
+                    <TableCell>Um plano estratégico claro e uma solução estrutural personalizada.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Análise e Otimização</TableCell>
+                    <TableCell>Aplicamos o <strong>Método BRGT</strong> para otimizar e preparar os dados.</TableCell>
+                    <TableCell>A segurança de uma análise aprofundada e a base para um processo mais rápido.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Modelagem BIM</TableCell>
+                    <TableCell>Nossos plugins automatizam a criação do modelo 3D no Revit.</TableCell>
+                    <TableCell>Um projeto 100% compatível, livre de conflitos e com precisão milimétrica.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Entrega e Suporte</TableCell>
+                    <TableCell>Entregamos um projeto executivo inteligente e oferecemos suporte contínuo.</TableCell>
+                    <TableCell>A tranquilidade de ter um parceiro comprometido com o sucesso da sua obra.</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
           </div>
-        </div>
-      </section>
-
+        </section>
+      </div>
       {/* --- Seção de Tecnologias e Ferramentas --- */}
       <section className="container py-16">
         <div className="max-w-5xl mx-auto text-center">

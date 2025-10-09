@@ -63,7 +63,7 @@ export default function Portfolio() {
 
       <section className="container py-12">
         <h1 className="text-3xl font-semibold mb-2">Portfólio</h1>
-        <p className="text-muted-foreground mb-8">Explore alguns de nossos projetos de destaque. E venha fazer parte dessa história.</p>
+        <p className="text-muted-foreground mb-8">Explore alguns de nossos projetos e avaliações de destaque. E venha fazer parte dessa história.</p>
         
         {/* Menu de Filtros */}
         <div className="flex justify-left gap-2 mb-8">

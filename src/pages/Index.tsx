@@ -270,7 +270,7 @@ const Index = () => {
         {/* Lista de Projetos de Destaque (Dinâmica) */}
         <section className="py-14 text-center" aria-label="Lista de Projetos">
           <div className="container">
-              <RevealOnScroll><h2 className="text-xl md:text-2xl font-semibold mb-4 text-mb">Confira Outros Projetos</h2></RevealOnScroll>
+              <RevealOnScroll><h2 className="text-xl md:text-2xl font-semibold mb-8 text-[#ff6130]">Confira Outros Projetos</h2></RevealOnScroll>
               <RevealOnScroll>
               <ul className="text-mb grid md:grid-cols-3 gap-x-6 gap-y-2 list-none">
                   {projectsData.map((project) => (
@@ -284,8 +284,8 @@ const Index = () => {
         {/* Seção de Clientes e Parceiros */}
         <section className="container py-16 text-center">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-2">Clientes e Parceiros</h2>
-            <p className="mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
+            <h2 className="text-3xl font-semibold mb-2 text-[#ff6130]">Clientes e Parceiros</h2>
+            <p className="mb-1">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
             <Carousel
               plugins={[
                 Autoplay({

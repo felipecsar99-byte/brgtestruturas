@@ -162,7 +162,7 @@ export default function Sobre() {
               {/* Informações */}
               <div>
                 <h3 className="font-semibold text-lg text-white">{membro.nome}</h3>
-                <p className="text-muted-foreground text-black">{membro.funcao}</p>
+                <p className="text-black">{membro.funcao}</p>
               </div>
             </div>
             ))}
@@ -173,7 +173,7 @@ export default function Sobre() {
         {/* Seção de Clientes e Parceiros */}
         <section className="container py-16 text-center">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-semibold mb-2">Clientes e Parceiros</h2>
+            <h2 className="text-3xl font-semibold mb-2 text-[#ff6130]">Clientes e Parceiros</h2>
             <p className="mb-8">Temos orgulho de colaborar com grandes nomes do mercado da construção.</p>
             <Carousel
               plugins={[
