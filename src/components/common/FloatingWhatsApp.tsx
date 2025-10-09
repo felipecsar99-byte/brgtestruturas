@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
-const whatsappNumber = ""; // TODO: Preencha com DDI+DDD+Número, ex: "5551999999999"
+const whatsappNumber = "5562996070096"; // TODO: Preencha com DDI+DDD+Número, ex: "5551999999999"
 const waLink = whatsappNumber ? `https://wa.me/${whatsappNumber}` : "/contato";
 
 export default function FloatingWhatsApp() {

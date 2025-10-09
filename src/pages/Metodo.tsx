@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Zap } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// ✅ 1. IMPORTANDO O HOOK useParallax
+// IMPORTANDO O HOOK useParallax
 import { useParallax } from "@/hooks/use-parallax";
 
 // --- IMPORTAÇÃO DOS COMPONENTES DE UI ---
@@ -25,16 +25,14 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 // --- DADOS DA PÁGINA ---
 import { metodoSections } from "@/data/sitedata";
 
-// --- IMPORTAÇÃO DAS IMAGENS ---
+
 import heroMetodoImg from "@/assets/hero_metodo.webp";
-// Importando as imagens das tecnologias
+
 import sap2000Img from "@/assets/sap2000.png";
 import tqsImg from "@/assets/tqs.png";
 import revitImg from "@/assets/revit.png";
