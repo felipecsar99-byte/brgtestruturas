@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Zap } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
+import { VideoCard } from "@/components/common/VideoCard";
 
 // IMPORTANDO O HOOK useParallax
 import { useParallax } from "@/hooks/use-parallax";
@@ -143,6 +144,19 @@ export default function Metodo() {
         </Card>
       </section>
 
+      {/* --- Seção Vídeos em Destaque --- */}
+      <section className="container py-16">
+        <h2 className="text-3xl font-semibold text-center mb-1 text-[#ff6130]">Conheça o Método BRGT</h2>
+          <p className="text-muted-foreground mb-8 text-center">Veja algumas de nossas ferramentas que irão nos auxiliar a agilizar a sua obra.</p>
+            <div className="grid gap-8 justify-center">
+              <VideoCard 
+                youtubeId="uDqt5Sa4h-k?si=qkm9TijwKlqt0zY2" 
+                title="Modulação Automática de Alvenaria"
+                description="Veja como nossa ferramenta acelera o processo de modelagem."
+              />
+            </div>
+      </section>
+
         {/* --- Seção de Processo de Trabalho --- */}
       <div className="bg-[#f48861]">
         <section className="container py-16">
@@ -152,30 +166,25 @@ export default function Metodo() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">ETAPA</TableHead>
                     <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">O QUE FAZEMOS?</TableHead>
                     <TableHead className="font-semibold text-foreground text-center text-[#ff6130]">O QUE VOCÊ GANHA?</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell className="font-medium">Imersão</TableCell>
-                    <TableCell>Realizamos um diagnóstico completo para entender suas metas e desafios.</TableCell>
+                    <TableCell><strong>1.</strong> Realizamos um diagnóstico completo para entender suas metas e desafios.</TableCell>
                     <TableCell>Um plano estratégico claro e uma solução estrutural personalizada.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">Análise e Otimização</TableCell>
-                    <TableCell>Aplicamos o <strong>Método BRGT</strong> para otimizar e preparar os dados.</TableCell>
+                    <TableCell><strong>2.</strong> Aplicamos o <strong>Método BRGT</strong> para otimizar e preparar os dados.</TableCell>
                     <TableCell>A segurança de uma análise aprofundada e a base para um processo mais rápido.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">Modelagem BIM</TableCell>
-                    <TableCell>Nossos plugins automatizam a criação do modelo 3D no Revit.</TableCell>
+                    <TableCell><strong>3.</strong> Nossos plugins automatizam a criação do modelo 3D no Revit.</TableCell>
                     <TableCell>Um projeto 100% compatível, livre de conflitos e com precisão milimétrica.</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="font-medium">Entrega e Suporte</TableCell>
-                    <TableCell>Entregamos um projeto executivo inteligente e oferecemos suporte contínuo.</TableCell>
+                    <TableCell><strong>4.</strong> Entregamos um projeto executivo inteligente e oferecemos suporte contínuo.</TableCell>
                     <TableCell>A tranquilidade de ter um parceiro comprometido com o sucesso da sua obra.</TableCell>
                   </TableRow>
                 </TableBody>
