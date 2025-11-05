@@ -33,9 +33,9 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
-    { id: 1, title: "Altos do Aleixo", description: "Paredes de Concreto", image: altosDoAleixoImg, link: "/portfolio/altos-do-aleixo" },
-    { id: 2, title: "Residencial Raposa", description: "Concreto Armado", image: raposaImg, link: "/portfolio/residencial-raposa" },
-    { id: 3, title: "Casas Lyon", description: "Alvenaria Estrutural", image: casasLyonImg, link: "/portfolio/casas-lyon" },  
+    { id: 1, title: "Altos do Aleixo", description: "Paredes de Concreto", image: altosDoAleixoImg },
+    { id: 2, title: "Residencial Raposa", description: "Concreto Armado", image: raposaImg },
+    { id: 3, title: "Casas Lyon", description: "Alvenaria Estrutural", image: casasLyonImg },  
     { id: 4, title: "Casas Haus", description: "Projeto de destaque", image: '' },
     { id: 5, title: "Unique Tower", description: "Projeto de destaque", image: '' },
     { id: 6, title: "Eco Resort", description: "Projeto de destaque", image: '' },

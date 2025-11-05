@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { to: "/sobre", label: "Sobre nós" },
   { to: "/portfolio", label: "Portfólio" },
   { to: "/metodo", label: "Método BRGT" },
+  { to: "/blog", label: "Blog" }, // ✅ LINK DO BLOG ADICIONADO AQUI
   { to: "/contato", label: "Contato" },
 ];
 
@@ -52,7 +53,7 @@ export default function Navbar() {
                   isActive ? "text-primary-foreground" : "text-foreground/70 hover:text-foreground"
                 }`
               }
-              end
+              end={item.to === "/"} // Apenas o 'Home' precisa do 'end'
             >
               {({ isActive }) => (
                 <>
@@ -94,7 +95,7 @@ export default function Navbar() {
                 key={item.to} 
                 to={item.to} 
                 className={getMobileNavItemClass}
-                end
+                end={item.to === "/"} // Apenas o 'Home' precisa do 'end'
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
