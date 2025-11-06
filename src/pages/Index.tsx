@@ -23,14 +23,10 @@ import raposaImg from "@/assets/raposa.webp";
 import altosDoAleixoImg from "@/assets/altosdoaleixo.webp";
 import casasLyonImg from "@/assets/casaslyon.webp";
 import imagemMetodo from "@/assets/imagem_metodobrgt.png.png";
-
-// Importando as imagens dos clientes
 import clienteAkso from "@/assets/cliente_akso.webp";
 import clienteCea from "@/assets/cliente_cea.webp";
-import clienteEasy from "@/assets/cliente_easy.webp";
 import clienteFabrizio from "@/assets/cliente_fabrizio.webp";
 import clienteFgr from "@/assets/cliente_fgr.webp";
-import clienteHaus from "@/assets/cliente_haus.webp";
 import clienteHlts from "@/assets/cliente_hlts.webp";
 import clienteMaximo from "@/assets/cliente_maximo.webp";
 import clienteOm from "@/assets/cliente_om.webp";
@@ -38,7 +34,6 @@ import clientePafil from "@/assets/cliente_pafil.webp";
 import clientePf from "@/assets/cliente_pf.webp";
 import clienteRte from "@/assets/cliente_rte.webp";
 import clienteTelos from "@/assets/cliente_telos.webp";
-import clienteTrust from "@/assets/cliente_trust.webp";
 import clienteVega from "@/assets/cliente_vega.webp";
 import clienteVitta from "@/assets/cliente_vitta.webp";
 

@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { to: "/sobre", label: "Sobre nós" },
   { to: "/portfolio", label: "Portfólio" },
   { to: "/metodo", label: "Método BRGT" },
+  { to: "/blog", label: "Blog" },
   { to: "/contato", label: "Contato" },
 ];
 
