@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Building2, Layers3, Ruler, Hammer, ClipboardCheck, Boxes } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
-
+import {solucoes} from "@/data/sitedata"
 // Components e Hooks customizados
 import { Button } from "@/components/ui/button";
 import RevealOnScroll from "@/components/common/RevealOnScroll";
@@ -180,25 +180,27 @@ const Index = () => {
       </section>
     
       {/* Vantagens */}
-      <section className="relative py-20 md:py-28 text-center" aria-label="Vantagens do nosso escritório">
-        <div ref={advRef} className="absolute inset-0 -z-10 opacity-60 will-change-transform">
-            <div className="h-full w-full bg-gradient-to-b from-background via-background to-background" />
-        </div>
-        <div className="container">
-            <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold mb-6 text-[#f16136]">Vantagens de nosso escritório</h2></RevealOnScroll>
-            <div className="grid md:grid-cols-3 gap-6">
-            {["Projetos otimizados e compatibilizados", "Automação própria e suporte à obra", "Rigor técnico com equipe sênior"].map((title, idx) => (
-                <RevealOnScroll key={title} delay={idx * 80}>
-                <div className="rounded-lg border border-border p-6 bg-card shadow-[var(--shadow-elevate)] h-full">
-                    <h3 className="font-medium mb-2">{title}</h3>
-                    <p className="text-sm text-muted-foreground">Conteúdo a ser detalhado posteriormente.</p>
-                </div>
-                </RevealOnScroll>
-            ))}
-            </div>
-        </div>
-      </section>
+            <section className="relative py-20 md:py-28 text-center" aria-label="Vantagens do nosso escritório">
+              <div ref={advRef} className="absolute inset-0 -z-10 opacity-60 will-change-transform">
+                  <div className="h-full w-full" />
+              </div>
+              <div className="container">
+                  <RevealOnScroll><h2 className="text-2xl md:text-3xl font-semibold mb-12 text-[#f16136]">Nossos Diferenciais</h2></RevealOnScroll>
 
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {solucoes.map((solucao, idx) => (
+                      <RevealOnScroll key={solucao.title} delay={idx * 80}>
+                        <div className="rounded-lg border border-border p-6 bg-card shadow-[var(--shadow-elevate)] h-full text-center">
+                          <h3 className="font-semibold text-lg text-primary mb-2">{solucao.title}</h3>
+                          {/* A propriedade 'text' do seu 'sitedata' é usada aqui */}
+                          <p className="text-sm text-muted-foreground text-center">{solucao.text}</p>
+                        </div>
+                      </RevealOnScroll>
+                    ))}
+                  </div>
+
+              </div>
+            </section>
       {/* Seção do Método BRGT */}
       <section className="container py-24 text-center">
         <RevealOnScroll>

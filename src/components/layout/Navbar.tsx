@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { to: "/sobre", label: "Sobre nós" },
   { to: "/portfolio", label: "Portfólio" },
   { to: "/metodo", label: "Método BRGT" },
-  { to: "/blog", label: "Blog" }, // ✅ LINK DO BLOG ADICIONADO AQUI
   { to: "/contato", label: "Contato" },
 ];
 

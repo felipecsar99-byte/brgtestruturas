@@ -106,22 +106,31 @@ export const consequencias = [
 ];
 export const solucoes = [
   {
-    title: "Projetos Estruturais otimizados, compatibilizados e fáceis de executar",
-    text: "Reduzimos erros, evitamos retrabalho e garantimos que o projeto funcione na prática, com total integração entre disciplinas.",
+    title: "Projetos Estruturais Otimizados e Fáceis de Executar",
+    text: "Reduzimos custos e prazos com projetos totalmente compatibilizados e prontos para funcionar na prática — sem retrabalhos e sem surpresas na obra.",
   },
   {
-    title: "Automação Própria e suporte direto à obra",
-    text: "Modelagem eficiente com processos automatizados e acompanhamento técnico na execução para assegurar fidelidade ao projeto.",
+    title: "Automação Própria e Precisão Milimétrica",
+    text: "Desenvolvemos ferramentas internas que automatizam tarefas, aceleram o processo de projeto e garantem resultados precisos, econômicos e consistentes.",
   },
   {
-    title: "Alto rigor técnico",
-    text: "Utilizamos soluções de engenharia avançada e análise criteriosa para garantir segurança, precisão e qualidade estrutural.",
+    title: "Foco Total em Estruturas",
+    text: "Somos especialistas. Nosso trabalho é 100% dedicado a projetos estruturais — sem distrações com complementares, garantindo profundidade técnica e eficiência real.",
   },
   {
-    title: "Equipe Sênior",
-    text: "Engenheiros experientes, formados nas melhores universidades, com mais de 6 anos de atuação e foco total em otimizar soluções estruturais.",
+    title: "Foco na Execução em Obra",
+    text: "Projetamos pensando em quem executa. Nossa documentação é clara, detalhada e fácil de ler no canteiro, reduzindo erros e garantindo produtividade na obra.",
+  },
+  {
+    title: "Soluções Estruturais Sob Medida",
+    text: "Cada projeto é único. Adaptamos a estrutura às necessidades específicas do cliente e da arquitetura, buscando sempre o melhor equilíbrio entre segurança e economia.",
+  },
+  {
+    title: "Equipe Sênior e Altamente Técnica",
+    text: "Engenheiros especialistas, com experiência comprovada e domínio das ferramentas mais avançadas do mercado — do TQS ao SAP2000 — garantindo segurança e inovação.",
   },
 ];
+
 
 // parte do método brgt
 

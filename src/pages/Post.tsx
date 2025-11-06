@@ -96,7 +96,7 @@ export default function Post() {
             )}
 
             <h1 
-              className="text-3xl md:text-4xl font-semibold mb-6"
+              className="text-3xl md:text-4xl font-bold mb-6 text-[#f16136]"
               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
             />
 

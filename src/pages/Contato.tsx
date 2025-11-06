@@ -109,7 +109,7 @@ export default function Contato() {
           {/* ... O resto do seu componente ... */}
           <div className="space-y-6">
             <div className="rounded-lg border border-border p-4">
-              <h2 className="text-xl font-medium mb-2">Informações de contato</h2>
+              <h2 className="text-xl font-medium mb-2">Informações de Contato</h2>
               <ul className="text-muted-foreground space-y-2">
                 <li className="flex items-center gap-2"><Phone className="text-primary" size={18}/> Telefone: +55 62 99607-0096</li>
                 <li className="flex items-center gap-2"><Mail className="text-primary" size={18}/> E-mail: brgt@brgt.com.br</li>
@@ -134,7 +134,7 @@ export default function Contato() {
               <AspectRatio ratio={16 / 9}>
                 <iframe
                   title="Mapa de localização BRGT"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.131804856215!2d-49.27279422409208!3d-16.72027404643628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef0d9608b7bdb%3A0x4ee140a94fd0bb44!2sHirata%20e%20Associados%20Consultoria%20e%20Projetos%20Estruturais!5e0!3m2!1spt-BR!2sbr!4v1755614165162!5m2!1spt-BR!2sbr"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.1253956379887!2d-49.270414216830375!3d-16.72059395917916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef10372234c19%3A0x45e8d853c40eb06f!2sBRGT%20Estruturas!5e0!3m2!1spt-BR!2sbr!4v1762430820264!5m2!1spt-BR!2sbr"
                   className="w-full h-full rounded-md border border-border"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

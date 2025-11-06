@@ -56,7 +56,7 @@ export default function Blog() {
       </Helmet>
 
       <section className="container py-12">
-        <h1 className="text-3xl font-semibold mb-8">Blog</h1>
+        <h1 className="text-3xl font-semibold mb-8 text-[#f16136]">Blog</h1>
 
         {loading && (
           <div className="text-center py-16">
@@ -96,7 +96,7 @@ export default function Blog() {
                 </div>
                 <div className="p-4">
                   <h3 
-                    className="font-medium text-lg"
+                    className="font-medium text-lg text-[#f16136]"
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                   />
                   <div

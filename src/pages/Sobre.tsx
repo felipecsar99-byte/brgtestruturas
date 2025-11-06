@@ -103,13 +103,13 @@ export default function Sobre() {
       <section className="container py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
           <article className="rounded-lg border border-border p-8 bg-card h-full text-center shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Desafios de quem constrói hoje</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Desafios de Quem Constrói Hoje</h2>
             <ul className="space-y-2 list-disc list-inside text-muted-foreground text-left inline-block">
               {desafios.map((item) => <li key={item}>{item}</li>)}
             </ul>
           </article>
           <article className="rounded-lg border border-border p-8 bg-card h-full text-center shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Consequências desses problemas</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[#ff6130]">Consequências Desses Problemas</h2>
             <ul className="space-y-2 list-disc list-inside text-muted-foreground text-left inline-block">
               {consequencias.map((item) => <li key={item}>{item}</li>)}
             </ul>
@@ -120,7 +120,7 @@ export default function Sobre() {
       {/* --- Seção de Soluções --- */}
       <section className="container py-16">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-[#ff6130]">Como a BRGT pode te ajudar?</h2>
+          <h2 className="text-3xl font-semibold text-[#ff6130]">Como a BRGT Pode te Ajudar?</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {solucoes.map((solucao) => (
@@ -137,7 +137,7 @@ export default function Sobre() {
     {/* --- EQUIPE BRGT (COM CARDS DINÂMICOS E CENTRALIZADOS) --- */}
       <div className="bg-[#f48861]">
         <section className="container py-24 text-center">
-          <h2 className="text-3xl font-bold mb-12 text-white">Conheça a equipe BRGT</h2>
+          <h2 className="text-3xl font-bold mb-12 text-white">Conheça a Equipe BRGT</h2>
           {/* ✅ Usamos Flexbox com 'wrap' e 'justify-center' para o alinhamento perfeito */}
           <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
             {teamMembers.map((membro) => (
