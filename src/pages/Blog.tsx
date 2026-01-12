@@ -23,7 +23,6 @@ interface Post {
   };
 }
 
-// ✅ CORREÇÃO AQUI: Adicionado "default"
 export default function Blog() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -71,16 +70,25 @@ export default function Blog() {
         )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => {
+          {posts.map((post, index) => {
             const imageUrl = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+            
+            // Lógica da numeração: Total de posts menos o índice atual
+            // Isso garante que o post mais antigo seja o número 1
+            const postNumber = posts.length - index;
 
             return (
               <Link 
                 key={post.id} 
                 to={`/blog/${post.slug}`} 
-                className="group block rounded-lg border border-border overflow-hidden bg-card h-full flex flex-col hover:shadow-lg transition-shadow duration-300"
+                className="group block relative rounded-lg border border-border overflow-hidden bg-card h-full flex flex-col hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="w-full">
+                {/* --- NUMERAÇÃO CIANO --- */}
+                <span className="absolute bottom-4 right-4 z-20 text-2xl text-[#f16136] select-none">
+                  {postNumber}
+                </span>
+
+                <div className="w-full relative overflow-hidden">
                   {imageUrl ? (
                     <img 
                       src={imageUrl}
@@ -94,7 +102,8 @@ export default function Blog() {
                     </div>
                   )}
                 </div>
-                <div className="p-4">
+
+                <div className="p-4 pr-12"> {/* pr-12 para não sobrepor o texto ao número */}
                   <h3 
                     className="font-medium text-lg text-[#f16136]"
                     dangerouslySetInnerHTML={{ __html: post.title.rendered }}
