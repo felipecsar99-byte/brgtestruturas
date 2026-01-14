@@ -33,7 +33,9 @@ const portfolioProjectTitles = [
   "Max Serra Dourada",
   "Scenarium Beira Rio II",
   "Max Ipê",
-  "Mor Figueira Residence"
+  "Mor Figueira Residence",
+  "Casas Cannes",
+  "Casas Berlim"
   // Adicione aqui os novos projetos com foto quando estiverem prontos
 ];
 

@@ -150,13 +150,18 @@ export default function Metodo() {
           <p className="text-muted-foreground mb-8 text-center">Veja algumas de nossas ferramentas que irão nos auxiliar a agilizar a sua obra.</p>
             <div className="grid gap-8 justify-center">
               <VideoCard 
-                youtubeId="uDqt5Sa4h-k?si=qkm9TijwKlqt0zY2" 
-                title="Modulação Automática de Alvenaria"
-                description="Veja como nossa ferramenta acelera o processo de modelagem."
+                youtubeId="SKCOfufYAgA?si=RS_LFAlJazSzOgjv" 
+                title="Método BRGT - TQS Import"
+                description="Importação de blocos diretamente do que foi lançado no TQS."
+              />
+              <VideoCard 
+                youtubeId="-LhLvxYj7X8?si=H8boIpMuZZZ38cS9" 
+                title="Método BRGT - Modulação Automática"
+                description="Assim que as paredes se elevam aqui na BRGT."
               />
             </div>
-      </section>
 
+      </section>
         {/* --- Seção de Processo de Trabalho --- */}
       <div className="bg-[#f48861]">
         <section className="container py-16">
